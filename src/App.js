@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Greet from './Greet/Greet';
+import Exercise from './Exercise/Exercise';
+import Stats from './Stats/Stats';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      load: props.load ? props.load : 'greet',
+      operator: 'sum',
+      limits: {
+        first: 1,
+        second: 1,
+        factor: 5,
+      }
+    }
+    this.handleChanges = this.handleChanges.bind(this);
+  }
+
+  handleChanges(event) {
+    const NAME = event.target.name;
+    const VALUE = event.target.value;
+
+    switch (NAME) {
+      case 'load':
+        this.setState({
+          load: VALUE
+        })
+        break;
+
+      case 'operator':
+        this.setState({
+          operator: VALUE
+        })
+        break;
+    }
+  }
+
+  render() {
+    switch (this.load) {
+      case 'excersise':
+        return (<Exercise />);
+      case 'stats':
+        return (<Stats />);
+      default:
+        return (<Greet handleChanges={this.handleChanges} />);
+    }
+  }
 }
 
 export default App;

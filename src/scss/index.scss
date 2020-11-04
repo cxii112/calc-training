@@ -1,0 +1,101 @@
+@import "./zero";
+
+$color-accent-blue: rgba(#0099ff, 1);
+$color-glow: rgba(#0099ff, 1);
+$color-accent-white: rgba(#fff, 1);
+$color-accent-gray: rgba(#dbdbdb, 1);
+
+body {
+  display: flex;
+  max-width: 100vw;
+  flex: 0 1 auto;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    position: relative;
+    max-width: inherit;
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+  }
+  .content {
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    padding: 5px;
+    max-width: 400px;
+    width: 100%;
+  }
+  button {
+    width: 100%;
+    font-size: inherit;
+    color: $color-accent-white;
+    border-radius: 25px;
+    background-color: $color-accent-blue;
+    transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+  }
+  .content {
+    position: relative;
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    padding: 5px;
+    max-width: 300px;
+    width: 100%;
+  }
+  button {
+    width: 100%;
+    font-size: inherit;
+    color: $color-accent-white;
+    border-radius: 20px;
+    background-color: $color-accent-blue;
+    transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+  }
+}
+
+button:hover {
+  box-shadow: 0 0 10px $color-glow;
+}
+
+.onHover:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+}
+
+select {
+  font-size: inherit; /* от ширины блока div */
+  padding: 0.25em; /* отступы от текста до рамки */
+  background: $color-accent-gray;
+  border: 1px solid $color-accent-blue; /* рамка */
+  border-radius: 5px; /* скругление полей формы */
+  -webkit-appearance: none; /* Chrome */
+  -moz-appearance: none; /* Firefox */
+  appearance: none; /* убираем дефолнтные стрелочки */
+  font-family: inherit; /* наследует от родителя */
+}

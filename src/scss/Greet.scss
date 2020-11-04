@@ -1,0 +1,25 @@
+$color-accent-blue: rgba(#0099ff, 1);
+$color-glow: rgba(#0099ff, 1);
+$color-accent-white: rgba(#fff, 1);
+$color-blur: rgba(#dbdbdb, 1);
+
+// TODO: Добавить анимации для выпающего меню для мобилок
+@media screen and (min-width: 500px) {
+  .Options {
+    position: relative;
+    width: 100%;
+    background-color: $color-blur;
+    border-radius: 20px;
+    justify-content: flex-end;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .Options {
+    position: relative;
+    width: 100%;
+    background-color: $color-blur;
+    border-radius: 13px;
+    padding: 5px;
+  }
+}
