@@ -41,11 +41,29 @@ class App extends React.Component {
 
     switch (TYPE) {
       case 'range':
-        this.setState({
-          limits: {
-            [NAME]: { current: VALUE }
-          }
-        })
+        switch (NAME) {
+          case 'first':
+            this.setState({
+              limits: {
+                first: { current: VALUE }
+              }
+            });
+            break;
+          case 'second':
+            this.setState({
+              limits: {
+                second: { current: VALUE }
+              }
+            });
+            break;
+          case 'factor':
+            this.setState({
+              limits: {
+                factor: { current: VALUE }
+              }
+            });
+            break;
+        }
         break;
 
       case 'button':
@@ -63,10 +81,10 @@ class App extends React.Component {
         break;
     }
 
-    console.log('App state:')
-    console.log(`load ${this.state.load}`);
-    console.log(`operator ${this.state.operator}`);
-    console.log(`limits: ${this.state.limits.first} ${this.state.limits.second} ${this.state.limits.factor}`);
+    // console.log('App state:')
+    // console.log(`load ${this.state.load}`);
+    // console.log(`operator ${this.state.operator}`);
+    // console.log(`limits: ${this.state.limits.first} ${this.state.limits.second} ${this.state.limits.factor}`);
   }
 
   render() {

@@ -18,11 +18,29 @@ class Greet extends React.Component {
 
     switch (TYPE) {
       case 'range':
-        this.setState({
-          limits: {
-            [NAME]: { current: VALUE }
-          }
-        })
+        switch (NAME) {
+          case 'first':
+            this.setState({
+              limits: {
+                first: { current: VALUE }
+              }
+            });
+            break;
+          case 'second':
+            this.setState({
+              limits: {
+                second: { current: VALUE }
+              }
+            });
+            break;
+          case 'factor':
+            this.setState({
+              limits: {
+                factor: { current: VALUE }
+              }
+            });
+            break;
+        }
         break;
 
       case 'button':
@@ -59,7 +77,7 @@ class Greet extends React.Component {
                 name='first'
                 min={this.state.limits.first.min}
                 max={this.state.limits.first.max}
-                //value={this.state.limits.first.current}
+                value={this.state.limits.first.current}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
@@ -73,7 +91,7 @@ class Greet extends React.Component {
                 name='second'
                 min={this.state.limits.second.min}
                 max={this.state.limits.second.max}
-                //value={this.state.limits.second.current}
+                value={this.state.limits.second.current}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
@@ -86,7 +104,7 @@ class Greet extends React.Component {
                 type='range'
                 min={this.state.limits.factor.min}
                 max={this.state.limits.factor.max}
-                //value={this.state.limits.factor.current}
+                value={this.state.limits.factor.current}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
@@ -106,7 +124,7 @@ class Greet extends React.Component {
                 name='first'
                 min={this.state.limits.first.min}
                 max={this.state.limits.first.max}
-                //value={this.state.limits.first.current}
+                value={this.state.limits.first.current}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
@@ -120,12 +138,13 @@ class Greet extends React.Component {
                 name='second'
                 min={this.state.limits.second.min}
                 max={this.state.limits.second.max}
-                //value={this.state.limits.second.current}
+                value={this.state.limits.second.current}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
           </div>
         )
+        break;
     }
 
     return (
