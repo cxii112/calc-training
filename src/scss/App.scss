@@ -1,7 +1,7 @@
 .App {
   position: relative;
   display: flex;
-  max-height: 100vw;
+  max-height: inherit;
   flex: 0 0 auto;
   justify-content: space-around;
   align-items: center;

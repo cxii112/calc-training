@@ -9,11 +9,26 @@ class App extends React.Component {
     super(props);
     this.state = {
       load: props.load ? props.load : 'greet',
-      operator: 'sum',
+      operator: 'mul',
       limits: {
-        first: 1,
-        second: 1,
-        factor: 5,
+        first: {
+          title: '1 элемент',
+          min: 1,
+          max: 3,
+          current: 2,
+        },
+        second: {
+          title: '2 элемент',
+          min: 1,
+          max: 3,
+          current: 1,
+        },
+        factor: {
+          title: 'Множитель',
+          min: 1,
+          max: 9,
+          current: 5,
+        },
       }
     }
     this.handleChanges = this.handleChanges.bind(this);
@@ -22,30 +37,59 @@ class App extends React.Component {
   handleChanges(event) {
     const NAME = event.target.name;
     const VALUE = event.target.value;
+    const TYPE = event.target.type;
 
-    switch (NAME) {
-      case 'load':
+    switch (TYPE) {
+      case 'range':
         this.setState({
-          load: VALUE
+          limits: {
+            [NAME]: { current: VALUE }
+          }
         })
         break;
 
-      case 'operator':
+      case 'button':
         this.setState({
-          operator: VALUE
+          [NAME]: VALUE
         })
+        break;
+
+      case 'select-one':
+        this.setState({
+          [NAME]: VALUE
+        })
+        break;
+      default:
         break;
     }
+
+    console.log('App state:')
+    console.log(`load ${this.state.load}`);
+    console.log(`operator ${this.state.operator}`);
+    console.log(`limits: ${this.state.limits.first} ${this.state.limits.second} ${this.state.limits.factor}`);
   }
 
   render() {
-    switch (this.load) {
-      case 'excersise':
-        return (<Exercise />);
+    const LOAD = this.state.load;
+    const OPERATOR = this.state.operator;
+    const LIMITS = this.state.limits;
+    switch (LOAD) {
+      case 'exercise':
+        return (<div className='App'>
+          <Exercise />
+        </div>);
       case 'stats':
-        return (<Stats />);
+        return (<div className='App'>
+          <Stats />
+        </div>);
       default:
-        return (<Greet handleChanges={this.handleChanges} />);
+        return (
+          <div className='App'>
+            <Greet
+              operator={OPERATOR}
+              limits={LIMITS}
+              handleChanges={this.handleChanges} />
+          </div>);
     }
   }
 }

@@ -3,7 +3,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-height: 100vw;
+  max-height: inherit;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
