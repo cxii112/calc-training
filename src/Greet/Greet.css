@@ -1,0 +1,51 @@
+@media screen and (min-width: 500px) {
+  .Greet {
+    position: relative;
+    width: 100%;
+    padding: 5px;
+  }
+  .Greet .content {
+    position: relative;
+    display: inherit;
+    -webkit-box-pack: inherit;
+        -ms-flex-pack: inherit;
+            justify-content: inherit;
+    -webkit-box-align: inherit;
+        -ms-flex-align: inherit;
+            align-items: inherit;
+    padding: 5px;
+    width: 300px;
+  }
+  .Greet select {
+    text-align: center;
+  }
+  .Greet span {
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Greet {
+    position: relative;
+    width: 100%;
+    padding: 5px;
+  }
+  .Greet .content {
+    position: relative;
+    display: inherit;
+    -webkit-box-pack: inherit;
+        -ms-flex-pack: inherit;
+            justify-content: inherit;
+    -webkit-box-align: inherit;
+        -ms-flex-align: inherit;
+            align-items: inherit;
+    padding: 5px;
+    width: 300px;
+  }
+  .Greet select {
+    text-align: center;
+  }
+  .Greet span {
+    margin-right: 10px;
+  }
+}
