@@ -1,5 +1,5 @@
 @media screen and (min-width: 500px) {
-  .Options {
+  .Greet {
     position: relative;
     width: 100%;
     background-color: #dbdbdb;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .Options {
+  .Greet {
     position: relative;
     width: 100%;
     background-color: #dbdbdb;

@@ -5,7 +5,7 @@ $color-blur: rgba(#dbdbdb, 1);
 
 // TODO: Добавить анимации для выпающего меню для мобилок
 @media screen and (min-width: 500px) {
-  .Options {
+  .Greet {
     position: relative;
     width: 100%;
     background-color: $color-blur;
@@ -15,7 +15,7 @@ $color-blur: rgba(#dbdbdb, 1);
   }
 }
 @media screen and (max-width: 500px) {
-  .Options {
+  .Greet {
     position: relative;
     width: 100%;
     background-color: $color-blur;
