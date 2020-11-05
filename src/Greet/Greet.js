@@ -6,7 +6,24 @@ class Greet extends React.Component {
     super(props);
     this.state = {
       operator: props.operator,
-      limits: props.limits,
+      factor: props.factor ? props.factor : 2,
+      first: props.first ? props.first : 2,
+      second: props.second ? props.second : 1,
+    }
+    this.titles = {
+      first: '1 элемент',
+      second: '2 элемент',
+      factor: 'Множитель',
+    }
+    this.mins = {
+      first: 1,
+      second: 1,
+      factor: 2,
+    }
+    this.maxs = {
+      first: 3,
+      second: 3,
+      factor: 9,
     }
     this.handleChanges = this.handleChanges.bind(this);
   }
@@ -17,30 +34,10 @@ class Greet extends React.Component {
     const TYPE = event.target.type;
 
     switch (TYPE) {
-      case 'range':
-        switch (NAME) {
-          case 'first':
-            this.setState({
-              limits: {
-                first: { current: VALUE }
-              }
-            });
-            break;
-          case 'second':
-            this.setState({
-              limits: {
-                second: { current: VALUE }
-              }
-            });
-            break;
-          case 'factor':
-            this.setState({
-              limits: {
-                factor: { current: VALUE }
-              }
-            });
-            break;
-        }
+      case 'number':
+        this.setState({
+          [NAME]: Number(VALUE)
+        })
         break;
 
       case 'button':
@@ -57,7 +54,6 @@ class Greet extends React.Component {
       default:
         break;
     }
-
     this.props.handleChanges(event);
   }
 
@@ -67,83 +63,84 @@ class Greet extends React.Component {
       case 'mul':
         limitsInput = (
           <div>
-            <div className='range'>
-              <span className='range__title'>
-                {this.state.limits.first.title}
+            <div className='number'>
+              <span className='number__title'>
+                {this.titles.first}
               </span>
               <input
-                className='range__input'
-                type='range'
+                className='number__input'
+                type='number'
                 name='first'
-                min={this.state.limits.first.min}
-                max={this.state.limits.first.max}
-                value={this.state.limits.first.current}
+                min={this.mins.first}
+                max={this.maxs.first}
+                value={this.state.first}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
-            <div className='range'>
-              <span className='range__title'>
-                {this.state.limits.second.title}
+            <div className='number'>
+              <span className='number__title'>
+                {this.titles.second}
               </span>
               <input
-                className='range__input'
-                type='range'
+                className='number__input'
+                type='number'
                 name='second'
-                min={this.state.limits.second.min}
-                max={this.state.limits.second.max}
-                value={this.state.limits.second.current}
+                min={this.mins.second}
+                max={this.maxs.second}
+                value={this.state.second}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
-            <div className='range'>
-              <span className='range__title'>
-                {this.state.limits.factor.title}
+            <div className='number'>
+              <span className='number__title'>
+                {this.titles.factor}
               </span>
               <input
-                className='range__input'
-                type='range'
-                min={this.state.limits.factor.min}
-                max={this.state.limits.factor.max}
-                value={this.state.limits.factor.current}
+                className='number__input'
+                type='number'
+                name='factor'
+                min={this.mins.factor}
+                max={this.maxs.factor}
+                value={this.state.factor}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
           </div>
-        )
+        );
         break;
       default:
         limitsInput = (
           <div>
-            <div className='range'>
-              <span className='range__title'>
-                {this.state.limits.first.title}
+            <div className='number'>
+              <span className='number__title'>
+                {this.titles.first}
               </span>
               <input
-                className='range__input'
-                type='range'
+                className='number__input'
+                type='number'
                 name='first'
-                min={this.state.limits.first.min}
-                max={this.state.limits.first.max}
-                value={this.state.limits.first.current}
+                min={this.mins.first}
+                max={this.maxs.first}
+                value={this.state.first}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
-            <div className='range'>
-              <span className='range__title'>
-                {this.state.limits.second.title}
+            <div className='number'>
+              <span className='number__title'>
+                {this.titles.second}
               </span>
               <input
-                className='range__input'
-                type='range'
+                className='number__input'
+                type='number'
                 name='second'
-                min={this.state.limits.second.min}
-                max={this.state.limits.second.max}
-                value={this.state.limits.second.current}
+                min={this.mins.second}
+                max={this.maxs.second}
+                value={this.state.second}
                 step='1'
                 onChange={this.handleChanges} />
             </div>
           </div>
-        )
+        );
         break;
     }
 

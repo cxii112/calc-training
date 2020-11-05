@@ -1,0 +1,12 @@
+.Stats {
+  position: relative;
+  display: flex;
+  max-height: inherit;
+  flex: 0 0 auto;
+  justify-content: space-around;
+  align-items: center;
+  span {
+    justify-self: flex-end;
+    margin-right: 10px;
+  }
+}

@@ -10,28 +10,22 @@ class App extends React.Component {
     this.state = {
       load: props.load ? props.load : 'greet',
       operator: 'mul',
-      limits: {
-        first: {
-          title: '1 элемент',
-          min: 1,
-          max: 3,
-          current: 2,
-        },
-        second: {
-          title: '2 элемент',
-          min: 1,
-          max: 3,
-          current: 1,
-        },
-        factor: {
-          title: 'Множитель',
-          min: 1,
-          max: 9,
-          current: 5,
-        },
-      }
+      factor: props.factor ? props.factor : 5,
+      first: props.first ? props.first : 1,
+      second: props.second ? props.second : 1,
+      correct: props.correct ? props.correct : 0,
+      total: props.total ? props.total : 0,
     }
     this.handleChanges = this.handleChanges.bind(this);
+    this.statsUpd = this.statsUpd.bind(this);
+    //this.statsUpd = this.statsUpd.bind(this);
+  }
+
+  statsUpd(newStats) {
+    this.setState({
+      total: newStats.total,
+      correct: newStats.correct,
+    })
   }
 
   handleChanges(event) {
@@ -40,30 +34,10 @@ class App extends React.Component {
     const TYPE = event.target.type;
 
     switch (TYPE) {
-      case 'range':
-        switch (NAME) {
-          case 'first':
-            this.setState({
-              limits: {
-                first: { current: VALUE }
-              }
-            });
-            break;
-          case 'second':
-            this.setState({
-              limits: {
-                second: { current: VALUE }
-              }
-            });
-            break;
-          case 'factor':
-            this.setState({
-              limits: {
-                factor: { current: VALUE }
-              }
-            });
-            break;
-        }
+      case 'number':
+        this.setState({
+          [NAME]: Number(VALUE)
+        })
         break;
 
       case 'button':
@@ -80,32 +54,40 @@ class App extends React.Component {
       default:
         break;
     }
-
-    // console.log('App state:')
-    // console.log(`load ${this.state.load}`);
-    // console.log(`operator ${this.state.operator}`);
-    // console.log(`limits: ${this.state.limits.first} ${this.state.limits.second} ${this.state.limits.factor}`);
   }
 
   render() {
     const LOAD = this.state.load;
     const OPERATOR = this.state.operator;
     const LIMITS = this.state.limits;
-    switch (LOAD) {
+    switch (this.state.load) {
       case 'exercise':
         return (<div className='App'>
-          <Exercise />
+          <Exercise
+            operator={this.state.operator}
+            factor={this.state.factor}
+            first={this.state.first}
+            second={this.state.second}
+            handleChanges={this.handleChanges}
+            statsUpd={this.statsUpd}
+          />
         </div>);
       case 'stats':
         return (<div className='App'>
-          <Stats />
+          <Stats
+            //operator={this.state.operator}
+            correct={this.state.correct}
+            total={this.state.total}
+            handleChanges={this.handleChanges} />
         </div>);
       default:
         return (
           <div className='App'>
             <Greet
-              operator={OPERATOR}
-              limits={LIMITS}
+              operator={this.state.operator}
+              factor={this.state.factor}
+              first={this.state.first}
+              second={this.state.second}
               handleChanges={this.handleChanges} />
           </div>);
     }

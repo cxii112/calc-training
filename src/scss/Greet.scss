@@ -19,9 +19,6 @@ $color-blur: rgba(#dbdbdb, 1);
     select {
       text-align: center;
     }
-    span {
-      margin-right: 10px;
-    }
   }
 }
 @media screen and (max-width: 500px) {
@@ -39,9 +36,6 @@ $color-blur: rgba(#dbdbdb, 1);
     }
     select {
       text-align: center;
-    }
-    span {
-      margin-right: 10px;
     }
   }
 }

@@ -91,6 +91,11 @@ button:hover {
   box-shadow: 0 0 10px $color-glow;
 }
 
+input {
+  font-size: 30px;
+  max-width: 150px;
+}
+
 .onHover:hover {
   transform: scale3d(1.05, 1.05, 1.05);
 }
@@ -105,4 +110,7 @@ select {
   -moz-appearance: none; /* Firefox */
   appearance: none; /* убираем дефолнтные стрелочки */
   font-family: inherit; /* наследует от родителя */
+}
+span {
+  margin-right: 10px;
 }

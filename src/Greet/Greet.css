@@ -19,9 +19,6 @@
   .Greet select {
     text-align: center;
   }
-  .Greet span {
-    margin-right: 10px;
-  }
 }
 
 @media screen and (max-width: 500px) {
@@ -44,8 +41,5 @@
   }
   .Greet select {
     text-align: center;
-  }
-  .Greet span {
-    margin-right: 10px;
   }
 }
