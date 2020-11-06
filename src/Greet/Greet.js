@@ -11,8 +11,8 @@ class Greet extends React.Component {
       second: props.second ? props.second : 1,
     }
     this.titles = {
-      first: '1 элемент',
-      second: '2 элемент',
+      first: 'В 1-м элементе',
+      second: 'Во 2-м элементе',
       factor: 'Множитель',
     }
     this.mins = {
@@ -63,47 +63,52 @@ class Greet extends React.Component {
       case 'mul':
         limitsInput = (
           <div>
-            <div className='number'>
-              <span className='number__title'>
-                {this.titles.first}
-              </span>
-              <input
-                className='number__input'
-                type='number'
-                name='first'
-                min={this.mins.first}
-                max={this.maxs.first}
-                value={this.state.first}
-                step='1'
-                onChange={this.handleChanges} />
+            <div className='gray'>
+              <div>Число разрядов</div>
+              <div className='number'>
+                <span className='number__title'>
+                  {this.titles.first}
+                </span>
+                <input
+                  className='number__input'
+                  type='number'
+                  name='first'
+                  min={this.mins.first}
+                  max={this.maxs.first}
+                  value={this.state.first}
+                  step='1'
+                  onChange={this.handleChanges} />
+              </div>
+              <div className='number'>
+                <span className='number__title'>
+                  {this.titles.second}
+                </span>
+                <input
+                  className='number__input'
+                  type='number'
+                  name='second'
+                  min={this.mins.second}
+                  max={this.maxs.second}
+                  value={this.state.second}
+                  step='1'
+                  onChange={this.handleChanges} />
+              </div>
             </div>
-            <div className='number'>
-              <span className='number__title'>
-                {this.titles.second}
-              </span>
-              <input
-                className='number__input'
-                type='number'
-                name='second'
-                min={this.mins.second}
-                max={this.maxs.second}
-                value={this.state.second}
-                step='1'
-                onChange={this.handleChanges} />
-            </div>
-            <div className='number'>
-              <span className='number__title'>
-                {this.titles.factor}
-              </span>
-              <input
-                className='number__input'
-                type='number'
-                name='factor'
-                min={this.mins.factor}
-                max={this.maxs.factor}
-                value={this.state.factor}
-                step='1'
-                onChange={this.handleChanges} />
+            <div className='gray'>
+              <div className='number'>
+                <span className='number__title'>
+                  {this.titles.factor}
+                </span>
+                <input
+                  className='number__input'
+                  type='number'
+                  name='factor'
+                  min={this.mins.factor}
+                  max={this.maxs.factor}
+                  value={this.state.factor}
+                  step='1'
+                  onChange={this.handleChanges} />
+              </div>
             </div>
           </div>
         );
@@ -111,33 +116,35 @@ class Greet extends React.Component {
       default:
         limitsInput = (
           <div>
-            <div className='number'>
-              <span className='number__title'>
-                {this.titles.first}
-              </span>
-              <input
-                className='number__input'
-                type='number'
-                name='first'
-                min={this.mins.first}
-                max={this.maxs.first}
-                value={this.state.first}
-                step='1'
-                onChange={this.handleChanges} />
-            </div>
-            <div className='number'>
-              <span className='number__title'>
-                {this.titles.second}
-              </span>
-              <input
-                className='number__input'
-                type='number'
-                name='second'
-                min={this.mins.second}
-                max={this.maxs.second}
-                value={this.state.second}
-                step='1'
-                onChange={this.handleChanges} />
+            <div className='gray content'>
+              <div className='number'>
+                <span className='number__title'>
+                  {this.titles.first}
+                </span>
+                <input
+                  className='number__input'
+                  type='number'
+                  name='first'
+                  min={this.mins.first}
+                  max={this.maxs.first}
+                  value={this.state.first}
+                  step='1'
+                  onChange={this.handleChanges} />
+              </div>
+              <div className='number'>
+                <span className='number__title'>
+                  {this.titles.second}
+                </span>
+                <input
+                  className='number__input'
+                  type='number'
+                  name='second'
+                  min={this.mins.second}
+                  max={this.maxs.second}
+                  value={this.state.second}
+                  step='1'
+                  onChange={this.handleChanges} />
+              </div>
             </div>
           </div>
         );

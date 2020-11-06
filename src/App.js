@@ -3,12 +3,14 @@ import './App.css';
 import Greet from './Greet/Greet';
 import Exercise from './Exercise/Exercise';
 import Stats from './Stats/Stats';
+import Usage from './Popups/Usage';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       load: props.load ? props.load : 'greet',
+      usage: false,
       operator: 'mul',
       factor: props.factor ? props.factor : 5,
       first: props.first ? props.first : 1,
@@ -18,6 +20,7 @@ class App extends React.Component {
     }
     this.handleChanges = this.handleChanges.bind(this);
     this.statsUpd = this.statsUpd.bind(this);
+    this.popupToggle = this.popupToggle.bind(this);
     //this.statsUpd = this.statsUpd.bind(this);
   }
 
@@ -25,6 +28,14 @@ class App extends React.Component {
     this.setState({
       total: newStats.total,
       correct: newStats.correct,
+    })
+  }
+
+  popupToggle(event) {
+    const CN = event.currentTarget;
+    CN.classList.toggle('open');
+    this.setState({
+      usage: !this.state.usage
     })
   }
 
@@ -60,6 +71,10 @@ class App extends React.Component {
     const LOAD = this.state.load;
     const OPERATOR = this.state.operator;
     const LIMITS = this.state.limits;
+    let usage;
+    if (this.state.usage) {
+      usage = (<Usage onClick={this.popupToggle} />);
+    }
     switch (this.state.load) {
       case 'exercise':
         return (<div className='App'>
@@ -69,8 +84,8 @@ class App extends React.Component {
             first={this.state.first}
             second={this.state.second}
             handleChanges={this.handleChanges}
-            statsUpd={this.statsUpd}
-          />
+            statsUpd={this.statsUpd} />
+          <Usage />
         </div>);
       case 'stats':
         return (<div className='App'>
@@ -79,16 +94,31 @@ class App extends React.Component {
             correct={this.state.correct}
             total={this.state.total}
             handleChanges={this.handleChanges} />
+          <Usage />
         </div>);
       default:
         return (
-          <div className='App'>
-            <Greet
-              operator={this.state.operator}
-              factor={this.state.factor}
-              first={this.state.first}
-              second={this.state.second}
-              handleChanges={this.handleChanges} />
+          <div className='container'>
+            <div className='options'>
+              <button
+                type='button'
+                name='usage'
+                value='true'
+                onClick={this.handleChanges}>
+                i
+              </button>
+            </div>
+            <div className='content'>
+              <div className='App'>
+                <Greet
+                  operator={this.state.operator}
+                  factor={this.state.factor}
+                  first={this.state.first}
+                  second={this.state.second}
+                  handleChanges={this.handleChanges} />
+              </div>
+            </div>
+            {usage}
           </div>);
     }
   }

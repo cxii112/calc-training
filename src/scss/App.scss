@@ -1,8 +1,25 @@
+$color-accent-blue: rgba(#0099ff, 1);
+$color-glow: rgba(#0099ff, 1);
+$color-accent-white: rgba(#fff, 1);
+$color-accent-gray: rgba(#ebebeb, 1);
+
 .App {
   position: relative;
   display: flex;
-  max-height: inherit;
   flex: 0 0 auto;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  z-index: 10;
+}
+.options {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  button {
+    min-width: 50px;
+    min-height: 50px;
+    height: 50px;
+    width: 50px;
+    z-index: 50;
+  }
 }

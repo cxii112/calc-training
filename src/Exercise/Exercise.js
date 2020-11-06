@@ -161,7 +161,7 @@ class Exercise extends React.Component {
   render() {
     //this.generateEquasion();
     return (
-      <div>
+      <div className='container'>
         <div className='content'>
           <span>{this.current.first}</span>
           <span>{this.sym}</span>
