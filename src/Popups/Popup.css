@@ -151,3 +151,13 @@
             transform: translate(0%, 0%);
   }
 }
+
+li {
+  list-style: none;
+  padding: 5px;
+}
+
+li:before {
+  content: "\003E\003E\003E";
+  padding-right: 10px;
+}

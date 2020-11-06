@@ -224,7 +224,7 @@ select {
   /* от ширины блока div */
   padding: 0.25em;
   /* отступы от текста до рамки */
-  background: #ebebeb;
+  background: #dbdbdb;
   border: 1px solid #0099ff;
   /* рамка */
   border-radius: 5px;
@@ -245,7 +245,25 @@ span {
 }
 
 .gray {
-  background-color: #ebebeb;
-  border-radius: 10px;
-  padding: 15px;
+  background-color: #dbdbdb;
+  border-radius: 5px;
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.green {
+  background-color: rgba(0, 206, 0, 0.5);
+  border-radius: 5px;
+}
+
+a {
+  background-color: #dbdbdb;
+  border-radius: 5px;
+}
+
+a:visited {
+  color: #000;
 }

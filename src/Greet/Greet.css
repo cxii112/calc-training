@@ -21,3 +21,9 @@
           align-items: inherit;
   text-align: center;
 }
+
+.Greet .gray {
+  background-color: #dbdbdb;
+  border-radius: 10px;
+  padding: 15px;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-import './Usage.css';
+import './Popup.css';
 class Usage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       load: props.load ? props.load : 'greet',
-    }
+    };
     this.onClick = this.popupToggle.bind(this);
     this.greetUsage = (
       <div>
@@ -71,17 +71,17 @@ class Usage extends React.Component {
         usage = this.greetUsage;
     }
     return (
-      <div className='popup' onClick={this.onClick}>
+      <div className='popup' name='usage' onClick={this.onClick}>
         <div className='content'>
           <div className='popup__content'>
             <div className='text'>
               <span className='text__title'>Использование</span>
-              <p><i>Убедительная просьба дочитать это руководство <b>до конца</b>, особенно если вы читаете его в первый раз. Взависимости от того на какой странице Вы находитесь будет меняться содержание этого руководства.</i></p>
+              <p><i>Убедительная просьба дочитать это руководство <b>до конца</b>, особенно если вы читаете его в первый раз. Взависимости от того на какой странице Вы находитесь будет меняться содержание этого руководства. Также просьба заглядывать в DevLog, прежде чем ругаться о недочетач и т.п., возможно они уже в процессе исправления.</i></p>
               {usage}
             </div>
           </div>
         </div>
-      </div >
+      </div>
     )
   }
 }
