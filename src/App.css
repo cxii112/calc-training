@@ -24,7 +24,5 @@
 .options button {
   min-width: 50px;
   min-height: 50px;
-  height: 50px;
-  width: 50px;
   z-index: 50;
 }

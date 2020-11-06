@@ -135,6 +135,7 @@ body {
     width: 100%;
     max-width: 1000px;
     padding: 10px;
+    margin-bottom: 10px;
   }
   button {
     width: inherit;
@@ -183,6 +184,7 @@ body {
     width: 100%;
     max-width: 1000px;
     padding: 10px;
+    margin-bottom: 10px;
   }
   button {
     width: 100%;

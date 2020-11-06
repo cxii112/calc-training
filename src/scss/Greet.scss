@@ -3,9 +3,40 @@ $color-glow: rgba(#0099ff, 1);
 $color-accent-white: rgba(#fff, 1);
 $color-blur: rgba(#dbdbdb, 1);
 
-@media screen and (min-width: 1000px) {
-  .Greet {
+// @media screen and (min-width: 1000px) {
+//   .Greet {
+//     position: absolute;
+//     width: 100%;
+//     align-items: center;
+//     justify-content: center;
+//     .content {
+//       position: relative;
+//       display: inherit;
+//       justify-content: inherit;
+//       align-items: inherit;
+//       text-align: center;
+//       width: 500px;
+//     }
+//   }
+// }
+// @media screen and (max-width: 1000px) {
+//   .Greet {
+//     position: absolute;
+//     width: 100%;
+//     align-items: center;
+//     justify-content: center;
+//     .content {
+//       position: relative;
+//       display: inherit;
+//       justify-content: inherit;
+//       align-items: inherit;
+//     }
+//   }
+// }
+
+.Greet {
     position: absolute;
+    max-width: 500px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -15,21 +46,5 @@ $color-blur: rgba(#dbdbdb, 1);
       justify-content: inherit;
       align-items: inherit;
       text-align: center;
-      width: 500px;
     }
   }
-}
-@media screen and (max-width: 1000px) {
-  .Greet {
-    position: absolute;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    .content {
-      position: relative;
-      display: inherit;
-      justify-content: inherit;
-      align-items: inherit;
-    }
-  }
-}

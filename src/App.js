@@ -32,8 +32,8 @@ class App extends React.Component {
   }
 
   popupToggle(event) {
-    const CN = event.currentTarget;
-    CN.classList.toggle('open');
+    // const CN = event.currentTarget;
+    // CN.classList.toggle('open');
     this.setState({
       usage: !this.state.usage
     })
@@ -43,6 +43,7 @@ class App extends React.Component {
     const NAME = event.target.name;
     const VALUE = event.target.value;
     const TYPE = event.target.type;
+    console.log(TYPE);
 
     switch (TYPE) {
       case 'number':
@@ -52,9 +53,18 @@ class App extends React.Component {
         break;
 
       case 'button':
-        this.setState({
-          [NAME]: VALUE
-        })
+        switch (NAME) {
+          // case 'usage':
+          //   this.setState({
+          //     usage: !this.state.usage
+          //   })
+          //   break;
+          default:
+            this.setState({
+              [NAME]: VALUE
+            })
+            break;
+        }
         break;
 
       case 'select-one':
@@ -78,6 +88,17 @@ class App extends React.Component {
     switch (this.state.load) {
       case 'exercise':
         return (<div className='App'>
+          <div className='container'>
+            <div className='options'>
+              <button
+                type='button'
+                name='usage'
+                value='true'
+                onClick={this.popupToggle}>
+                Помощь
+              </button>
+            </div>
+          </div>
           <Exercise
             operator={this.state.operator}
             factor={this.state.factor}
@@ -85,16 +106,27 @@ class App extends React.Component {
             second={this.state.second}
             handleChanges={this.handleChanges}
             statsUpd={this.statsUpd} />
-          <Usage />
+          {usage}
         </div>);
       case 'stats':
         return (<div className='App'>
+          <div className='container'>
+            <div className='options'>
+              <button
+                type='button'
+                name='usage'
+                value='true'
+                onClick={this.popupToggle}>
+                Помощь
+              </button>
+            </div>
+          </div>
           <Stats
             //operator={this.state.operator}
             correct={this.state.correct}
             total={this.state.total}
             handleChanges={this.handleChanges} />
-          <Usage />
+          {usage}
         </div>);
       default:
         return (
@@ -104,8 +136,8 @@ class App extends React.Component {
                 type='button'
                 name='usage'
                 value='true'
-                onClick={this.handleChanges}>
-                i
+                onClick={this.popupToggle}>
+                Помощь
               </button>
             </div>
             <div className='content'>

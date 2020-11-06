@@ -62,8 +62,8 @@ class Greet extends React.Component {
     switch (this.state.operator) {
       case 'mul':
         limitsInput = (
-          <div>
-            <div className='gray'>
+          <div className='container gray'>
+            <div className=''>
               <div>Число разрядов</div>
               <div className='number'>
                 <span className='number__title'>
@@ -94,7 +94,7 @@ class Greet extends React.Component {
                   onChange={this.handleChanges} />
               </div>
             </div>
-            <div className='gray'>
+            <div className=''>
               <div className='number'>
                 <span className='number__title'>
                   {this.titles.factor}
@@ -115,8 +115,9 @@ class Greet extends React.Component {
         break;
       default:
         limitsInput = (
-          <div>
-            <div className='gray content'>
+          <div className='container gray'>
+            <div className=''>
+              <div>Число разрядов</div>
               <div className='number'>
                 <span className='number__title'>
                   {this.titles.first}

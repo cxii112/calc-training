@@ -59,6 +59,8 @@ class Usage extends React.Component {
   }
 
   popupToggle(event) {
+    // const CN = event.currentTarget;
+    // CN.classList.toggle('closing');
     this.props.onClick(event);
   }
 
