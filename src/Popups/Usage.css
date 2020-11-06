@@ -44,34 +44,41 @@
   .text {
     font-size: inherit;
   }
+  .text p {
+    font-size: 20px;
+  }
   .text__title {
-    font-size: 30px;
+    font-size: 35px;
   }
   .text__sectiontitle {
-    font-size: 25px;
+    font-size: 27px;
   }
   .text__subtitle {
-    font-size: 20px;
+    font-size: 23px;
   }
   .text__subsection {
     padding-left: 20px;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
   }
   .text__par {
-    padding-left: 17px;
+    padding-left: 10px;
   }
   .popup__content {
-    position: relative;
+    position: absolute;
     background-color: white;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    padding: 30px;
-    max-width: 350px;
+    padding: 20px;
     scrollbar-width: none;
-    margin-bottom: 20px;
+    top: 20px;
+    -webkit-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    width: 95vw;
   }
   .popup__content p {
     padding-left: 20px;
