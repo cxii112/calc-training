@@ -6,37 +6,6 @@ $color-accent-gray-trancparent: rgba(#000000, 0.7);
 $color-accent-red: rgba(#ff0000, 0.5);
 $color-accent-green: rgba(#00ce00, 0.5);
 
-// @media screen and (min-width: 1000px) {
-//   .Greet {
-//     position: absolute;
-//     width: 100%;
-//     align-items: center;
-//     justify-content: center;
-//     .content {
-//       position: relative;
-//       display: inherit;
-//       justify-content: inherit;
-//       align-items: inherit;
-//       text-align: center;
-//       width: 500px;
-//     }
-//   }
-// }
-// @media screen and (max-width: 1000px) {
-//   .Greet {
-//     position: absolute;
-//     width: 100%;
-//     align-items: center;
-//     justify-content: center;
-//     .content {
-//       position: relative;
-//       display: inherit;
-//       justify-content: inherit;
-//       align-items: inherit;
-//     }
-//   }
-// }
-
 .Greet {
   position: absolute;
   max-width: 500px;

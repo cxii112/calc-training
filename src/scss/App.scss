@@ -17,8 +17,8 @@ $color-accent-gray: rgba(#ebebeb, 1);
   top: 20px;
   right: 20px;
   button {
-    min-width: 50px;
-    min-height: 50px;
+    // min-width: 50px;
+    // min-height: 50px;
     z-index: 50;
     margin: 5px;
   }
@@ -26,11 +26,11 @@ $color-accent-gray: rgba(#ebebeb, 1);
 
 @media screen and (min-width: 768px) {
   .options {
-    flex-direction: row;
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 768px) {
   .options {
-    flex-direction: column;
+    flex-direction: row;
   }
 }

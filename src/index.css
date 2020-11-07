@@ -101,7 +101,7 @@ body {
           justify-content: center;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 768px) {
   .container {
     position: relative;
     max-width: inherit;
@@ -141,7 +141,7 @@ body {
     width: inherit;
     font-size: inherit;
     color: white;
-    border-radius: 25px;
+    border-radius: 50px;
     background-color: #0099ff;
     transition: all 0.2s ease 0s;
     -o-transition: all 0.2s ease 0s;
@@ -150,7 +150,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
   .container {
     position: relative;
     max-width: inherit;
@@ -189,7 +189,7 @@ body {
   button {
     font-size: inherit;
     color: white;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: #0099ff;
     transition: all 0.2s ease 0s;
     -o-transition: all 0.2s ease 0s;
@@ -198,9 +198,22 @@ body {
   }
 }
 
-button:hover {
-  -webkit-box-shadow: 0 0 10px #0099ff;
-          box-shadow: 0 0 10px #0099ff;
+@media screen and (min-width: 768px) {
+  button:hover {
+    -webkit-box-shadow: 0 0 10px #0099ff;
+            box-shadow: 0 0 10px #0099ff;
+  }
+  button.gray:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  button:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 
 input {
@@ -211,11 +224,6 @@ input {
 
 .number {
   width: inherit;
-}
-
-.onHover:hover {
-  -webkit-transform: scale3d(1.05, 1.05, 1.05);
-          transform: scale3d(1.05, 1.05, 1.05);
 }
 
 select {
@@ -244,19 +252,31 @@ span {
   margin-right: 10px;
 }
 
-.gray {
+span .gray {
   background-color: #dbdbdb;
   border-radius: 5px;
 }
 
-.red {
+span .red {
   background-color: rgba(255, 0, 0, 0.5);
   border-radius: 5px;
 }
 
-.green {
+span .green {
   background-color: rgba(0, 206, 0, 0.5);
   border-radius: 5px;
+}
+
+.gray {
+  background-color: #dbdbdb;
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.green {
+  background-color: rgba(0, 206, 0, 0.5);
 }
 
 a {

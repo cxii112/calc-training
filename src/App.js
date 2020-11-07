@@ -14,6 +14,7 @@ class App extends React.Component {
       usage: false,
       devLog: false,
       operator: 'mul',
+      solveToFinish: 10,
       factor: props.factor ? props.factor : 5,
       first: props.first ? props.first : 1,
       second: props.second ? props.second : 1,
@@ -177,6 +178,7 @@ class App extends React.Component {
             factor={this.state.factor}
             first={this.state.first}
             second={this.state.second}
+            solveToFinish={this.state.solveToFinish}
             handleChanges={this.handleChanges}
             statsUpd={this.statsUpd} />
         )

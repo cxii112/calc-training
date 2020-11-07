@@ -31,7 +31,7 @@ body {
   justify-content: center;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 768px) {
   .container {
     position: relative;
     max-width: inherit;
@@ -58,7 +58,7 @@ body {
     width: inherit;
     font-size: inherit;
     color: $color-accent-white;
-    border-radius: 25px;
+    border-radius: 50px;
     background-color: $color-accent-blue;
     transition: all 0.2s ease 0s;
     -o-transition: all 0.2s ease 0s;
@@ -67,7 +67,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
   .container {
     position: relative;
     max-width: inherit;
@@ -94,7 +94,7 @@ body {
     //width: 100%;
     font-size: inherit;
     color: $color-accent-white;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: $color-accent-blue;
     transition: all 0.2s ease 0s;
     -o-transition: all 0.2s ease 0s;
@@ -103,8 +103,18 @@ body {
   }
 }
 
-button:hover {
-  box-shadow: 0 0 10px $color-glow;
+@media screen and (min-width: 768px) {
+  button:hover {
+    box-shadow: 0 0 10px $color-glow;
+  }
+  button.gray:hover {
+      box-shadow: none;
+    }
+}
+@media screen and (max-width: 768px) {
+  button:hover {
+    box-shadow: none;
+  }
 }
 
 input {
@@ -115,10 +125,6 @@ input {
 
 .number {
   width: inherit;
-}
-
-.onHover:hover {
-  transform: scale3d(1.05, 1.05, 1.05);
 }
 
 select {
@@ -136,28 +142,38 @@ select {
 }
 span {
   margin-right: 10px;
+  .gray {
+    background-color: $color-accent-gray;
+    border-radius: 5px;
+  }
+
+  .red {
+    background-color: $color-accent-red;
+    border-radius: 5px;
+  }
+
+  .green {
+    background-color: $color-accent-green;
+    border-radius: 5px;
+  }
 }
 
 .gray {
   background-color: $color-accent-gray;
-  border-radius: 5px;
 }
 
 .red {
   background-color: $color-accent-red;
-  border-radius: 5px;
 }
 
 .green {
-    background-color: $color-accent-green;
-    border-radius: 5px;
+  background-color: $color-accent-green;
 }
 
-
-a{
+a {
   background-color: $color-accent-gray;
   border-radius: 5px;
 }
-a:visited{
+a:visited {
   color: #000;
 }

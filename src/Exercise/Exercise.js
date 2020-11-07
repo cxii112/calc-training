@@ -6,6 +6,7 @@ class Exercise extends React.Component {
     this.state = {
       load: undefined,
       operator: props.operator,
+      solveToFinish:  props.solveToFinish ? props.solveToFinish : 5,
       factor: props.factor ? props.factor : 2,
       first: props.first ? props.first : 2,
       second: props.second ? props.second : 1,
@@ -41,7 +42,7 @@ class Exercise extends React.Component {
       correct: 0,
       total: 0,
     }
-    
+
     this.handleChanges = this.handleChanges.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
     this.generateEquasion();
@@ -159,7 +160,30 @@ class Exercise extends React.Component {
 
 
   render() {
-    //this.generateEquasion();
+    let finish;
+    ;
+    if (this.state.total >= this.state.solveToFinish) {
+      finish = (
+        <button
+          className='content'
+          type='button'
+          onClick={this.handleChanges}
+          name='load'
+          value='stats'>
+          Завершить
+        </button>
+      );
+    } else {
+      finish = (
+        <button
+          className='content gray'
+          type='button'
+          name='load'
+          value='stats'>
+          {this.stats.total + 1} из {this.state.solveToFinish}
+        </button>
+      );
+    }
     return (
       <div className='container'>
         <div className='content'>
@@ -183,14 +207,7 @@ class Exercise extends React.Component {
             Следующий
         </button>
         </div>
-        <button
-          className='content'
-          type='button'
-          onClick={this.handleChanges}
-          name='load'
-          value='stats'>
-          Завершить
-        </button>
+        {finish}
       </div>
     )
   }

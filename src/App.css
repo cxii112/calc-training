@@ -25,26 +25,24 @@
 }
 
 .options button {
-  min-width: 50px;
-  min-height: 50px;
   z-index: 50;
   margin: 5px;
 }
 
 @media screen and (min-width: 768px) {
   .options {
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
 @media screen and (max-width: 768px) {
   .options {
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
