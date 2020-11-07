@@ -159,26 +159,47 @@ class Greet extends React.Component {
 
   handleChanges(event) {
     const NAME = event.target.name;
-    const VALUE = event.target.value;
     const TYPE = event.target.type;
+
+    let value = event.target.value;
 
     switch (TYPE) {
       case 'number':
+        switch (NAME) {
+          case 'first':
+            if (Number(value) > this.maxs.first) {
+              value = this.maxs.first;
+            }
+            break;
+          case 'second':
+            if (Number(value) > this.maxs.first) {
+              value = this.maxs.second;
+            }
+            break;
+          case 'factor':
+            if (Number(value) > this.maxs.first) {
+              value = this.maxs.factor;
+            }
+            break;
+        
+          default:
+            break;
+        }
         this.setState({
-          [NAME]: Number(VALUE)
+          [NAME]: Number(value)
         })
         break;
 
       case 'button':
         this.setState({
-          [NAME]: VALUE
+          [NAME]: value
         })
         break;
 
       case 'select-one':
         // this.changeTitles(VALUE);
         this.setState({
-          [NAME]: VALUE
+          [NAME]: value
         })
         break;
       default:
@@ -192,7 +213,7 @@ class Greet extends React.Component {
     this.changeTitles(OPERATOR);
     //let limitsInput;
     const LIMITS_INPUT = this.limitsRender(OPERATOR);
-    
+
 
     return (
       <div className='Greet container' >

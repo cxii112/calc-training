@@ -82,7 +82,7 @@
 }
 
 .popup {
-  z-index: 20;
+  z-index: 50;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -21,6 +21,12 @@ class App extends React.Component {
       total: props.total ? props.total : 0,
     }
 
+    this.maxs = {
+      first: 3,
+      second: 3,
+      factor: 9,
+    }
+
     this.handleChanges = this.handleChanges.bind(this);
     this.statsUpd = this.statsUpd.bind(this);
     this.popupToggle = this.popupToggle.bind(this);
@@ -86,14 +92,35 @@ class App extends React.Component {
 
   handleChanges(event) {
     const NAME = event.target.name;
-    const VALUE = event.target.value;
+    //const VALUE = event.target.value;
     const TYPE = event.target.type;
     //console.log(TYPE);
+    let value = event.target.value;
 
     switch (TYPE) {
       case 'number':
+        switch (NAME) {
+          case 'first':
+            if (Number(value) > this.maxs.first) {
+              value = this.maxs.first;
+            }
+            break;
+          case 'second':
+            if (Number(value) > this.maxs.first) {
+              value = this.maxs.second;
+            }
+            break;
+          case 'factor':
+            if (Number(value) > this.maxs.first) {
+              value = this.maxs.factor;
+            }
+            break;
+
+          default:
+            break;
+        }
         this.setState({
-          [NAME]: Number(VALUE)
+          [NAME]: Number(value)
         })
         break;
 
@@ -111,7 +138,7 @@ class App extends React.Component {
             break;
           default:
             this.setState({
-              [NAME]: VALUE
+              [NAME]: value
             })
             break;
         }
@@ -119,7 +146,7 @@ class App extends React.Component {
 
       case 'select-one':
         this.setState({
-          [NAME]: VALUE
+          [NAME]: value
         })
         break;
       default:
