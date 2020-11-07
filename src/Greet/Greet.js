@@ -11,10 +11,30 @@ class Greet extends React.Component {
       second: props.second ? props.second : 1,
     }
     this.titles = {
-      first: 'В 1-м элементе',
-      second: 'Во 2-м элементе',
+      first: '###',
+      second: '###',
       factor: 'Множитель',
     }
+
+    this.texts = {
+      sum: {
+        first: '1-м слагаемом',
+        second: '2-м слагаемом',
+      },
+      decr: {
+        first: 'уменьшаемом',
+        second: 'вычитаемом',
+      },
+      mul: {
+        first: '1-м множителе',
+        second: '2-м множителе',
+      },
+      frac: {
+        first: 'делимом',
+        second: 'делителе',
+      },
+    }
+
     this.mins = {
       first: 1,
       second: 1,
@@ -25,7 +45,116 @@ class Greet extends React.Component {
       second: 3,
       factor: 9,
     }
+
     this.handleChanges = this.handleChanges.bind(this);
+  }
+
+  changeTitles(operator) {
+    console.log('titles ' + operator);
+    console.log(this.texts);
+    switch (operator) {
+      case 'mul':
+        this.titles.first = this.texts.mul.first;
+        this.titles.second = this.texts.mul.second;
+        break;
+      case 'frac':
+        this.titles.first = this.texts.frac.first;
+        this.titles.second = this.texts.frac.second;
+        break;
+      case 'sum':
+        this.titles.first = this.texts.sum.first;
+        this.titles.second = this.texts.sum.second;
+        break;
+      case 'decr':
+        this.titles.first = this.texts.decr.first;
+        this.titles.second = this.texts.decr.second;
+        break;
+    }
+    console.log(this.titles);
+  }
+
+  limitsRender(operator) {
+    let result;
+    let limitFirst = (
+      <div className='number'>
+        <span className='number__title'>
+          {this.titles.first}
+        </span>
+        <input
+          className='number__input'
+          type='number'
+          name='first'
+          min={this.mins.first}
+          max={this.maxs.first}
+          value={this.state.first}
+          step='1'
+          onChange={this.handleChanges} />
+      </div>
+    );
+    let limitSecond = (
+      <div className='number'>
+        <span className='number__title'>
+          {this.titles.second}
+        </span>
+        <input
+          className='number__input'
+          type='number'
+          name='second'
+          min={this.mins.second}
+          max={this.maxs.second}
+          value={this.state.second}
+          step='1'
+          onChange={this.handleChanges} />
+      </div>
+    );
+    let limitFactor = (
+      <div className='number'>
+        <span className='number__title'>
+          {this.titles.factor}
+        </span>
+        <input
+          className='number__input'
+          type='number'
+          name='factor'
+          min={this.mins.factor}
+          max={this.maxs.factor}
+          value={this.state.factor}
+          step='1'
+          onChange={this.handleChanges} />
+      </div>
+    );
+    switch (operator) {
+      case 'mul':
+        result = (
+          <div className='container gray'>
+            <div className=''>
+              <div>Число разрядов в</div>
+              {limitFirst}
+              {limitSecond}
+            </div>
+            <div className=''>
+              {limitFactor}
+            </div>
+          </div>
+        );
+        break;
+
+      default:
+        result = (
+          <div className='container gray'>
+            <div className=''>
+              <div>Число разрядов в</div>
+              {limitFirst}
+              {limitSecond}
+            </div>
+          </div>
+        );
+        break;
+    }
+
+    return (
+      result
+    )
   }
 
   handleChanges(event) {
@@ -47,6 +176,7 @@ class Greet extends React.Component {
         break;
 
       case 'select-one':
+        // this.changeTitles(VALUE);
         this.setState({
           [NAME]: VALUE
         })
@@ -58,99 +188,11 @@ class Greet extends React.Component {
   }
 
   render() {
-    let limitsInput;
-    switch (this.state.operator) {
-      case 'mul':
-        limitsInput = (
-          <div className='container gray'>
-            <div className=''>
-              <div>Число разрядов</div>
-              <div className='number'>
-                <span className='number__title'>
-                  {this.titles.first}
-                </span>
-                <input
-                  className='number__input'
-                  type='number'
-                  name='first'
-                  min={this.mins.first}
-                  max={this.maxs.first}
-                  value={this.state.first}
-                  step='1'
-                  onChange={this.handleChanges} />
-              </div>
-              <div className='number'>
-                <span className='number__title'>
-                  {this.titles.second}
-                </span>
-                <input
-                  className='number__input'
-                  type='number'
-                  name='second'
-                  min={this.mins.second}
-                  max={this.maxs.second}
-                  value={this.state.second}
-                  step='1'
-                  onChange={this.handleChanges} />
-              </div>
-            </div>
-            <div className=''>
-              <div className='number'>
-                <span className='number__title'>
-                  {this.titles.factor}
-                </span>
-                <input
-                  className='number__input'
-                  type='number'
-                  name='factor'
-                  min={this.mins.factor}
-                  max={this.maxs.factor}
-                  value={this.state.factor}
-                  step='1'
-                  onChange={this.handleChanges} />
-              </div>
-            </div>
-          </div>
-        );
-        break;
-      default:
-        limitsInput = (
-          <div className='container gray'>
-            <div className=''>
-              <div>Число разрядов</div>
-              <div className='number'>
-                <span className='number__title'>
-                  {this.titles.first}
-                </span>
-                <input
-                  className='number__input'
-                  type='number'
-                  name='first'
-                  min={this.mins.first}
-                  max={this.maxs.first}
-                  value={this.state.first}
-                  step='1'
-                  onChange={this.handleChanges} />
-              </div>
-              <div className='number'>
-                <span className='number__title'>
-                  {this.titles.second}
-                </span>
-                <input
-                  className='number__input'
-                  type='number'
-                  name='second'
-                  min={this.mins.second}
-                  max={this.maxs.second}
-                  value={this.state.second}
-                  step='1'
-                  onChange={this.handleChanges} />
-              </div>
-            </div>
-          </div>
-        );
-        break;
-    }
+    const OPERATOR = this.state.operator;
+    this.changeTitles(OPERATOR);
+    //let limitsInput;
+    const LIMITS_INPUT = this.limitsRender(OPERATOR);
+    
 
     return (
       <div className='Greet container' >
@@ -172,7 +214,7 @@ class Greet extends React.Component {
           <option value='mul'>Умножение</option>
           <option value='frac'>Деление</option>
         </select>
-        {limitsInput}
+        {LIMITS_INPUT}
       </div>
     )
   }

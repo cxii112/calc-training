@@ -46,6 +46,7 @@ class DevLog extends React.Component {
                      <li>Не знаю стоит ли писать о внутренних изменениях, но они были. :D</li>
                      <li className='green'>Теперь при переходе к упражнению модальное окно как и положено прячется.</li>
                      <li className='green'>При выборе <b>любого</b> оператора подписи не пропадают.</li>
+                     <li>Подписи к полям ввода.</li>
                   </div>
                </div>
                <div className='text__subsection'>
