@@ -57,6 +57,7 @@ $color-accent-green: rgba(#00ce00, 0.5);
   }
   input {
     max-width: 60px;
+    min-width: 30px;
   }
   @media screen and (min-width: 1000px) {
     input {
