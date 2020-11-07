@@ -17,14 +17,10 @@ html {
   scrollbar-width: none;
 }
 body {
-  //display: flex;
   max-width: 100vw;
   max-height: 100vh;
   height: inherit;
   width: inherit;
-  //flex: 0 1 auto;
-  //justify-content: space-around;
-  //align-items: center;
   font-size: 30px;
   overflow: hidden;
   align-items: center;
@@ -50,7 +46,6 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1000px;
     padding: 10px;
     margin-bottom: 10px;
   }
@@ -60,10 +55,7 @@ body {
     color: $color-accent-white;
     border-radius: 50px;
     background-color: $color-accent-blue;
-    transition: all 0.2s ease 0s;
-    -o-transition: all 0.2s ease 0s;
-    -moz-transition: all 0.2s ease 0s;
-    -webkit-transition: all 0.2s ease 0s;
+    margin: 5px 0px;
   }
 }
 
@@ -91,15 +83,12 @@ body {
     margin-bottom: 10px;
   }
   button {
-    //width: 100%;
+    width: inherit;
     font-size: inherit;
     color: $color-accent-white;
     border-radius: 30px;
     background-color: $color-accent-blue;
-    transition: all 0.2s ease 0s;
-    -o-transition: all 0.2s ease 0s;
-    -moz-transition: all 0.2s ease 0s;
-    -webkit-transition: all 0.2s ease 0s;
+    margin: 5px 0px;
   }
 }
 
@@ -119,7 +108,6 @@ body {
 
 input {
   font-size: 30px;
-  max-width: 150px;
   border-radius: 5px;
 }
 
@@ -140,33 +128,19 @@ select {
   font-family: inherit; /* наследует от родителя */
   text-align: center;
 }
-span {
-  margin-right: 10px;
-  .gray {
-    background-color: $color-accent-gray;
-    border-radius: 5px;
-  }
-
-  .red {
-    background-color: $color-accent-red;
-    border-radius: 5px;
-  }
-
-  .green {
-    background-color: $color-accent-green;
-    border-radius: 5px;
-  }
-}
 
 .gray {
+  border-radius: 5px;
   background-color: $color-accent-gray;
 }
 
 .red {
+  border-radius: 5px;
   background-color: $color-accent-red;
 }
 
 .green {
+  border-radius: 5px;
   background-color: $color-accent-green;
 }
 

@@ -72,7 +72,7 @@ class Usage extends React.Component {
     }
     return (
       <div className='popup' name='usage' onClick={this.onClick}>
-        <div className='content'>
+        <div className='popup__container'>
           <div className='popup__content'>
             <div className='text'>
               <span className='text__title'>Использование</span>

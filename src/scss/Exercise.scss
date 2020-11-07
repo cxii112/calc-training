@@ -2,7 +2,13 @@
   position: relative;
   display: flex;
   max-height: inherit;
+  max-width: 1000px;
   flex: 0 0 auto;
   justify-content: space-around;
   align-items: center;
+  input {
+  font-size: 30px;
+  width: 4em;
+  border-radius: 5px;
+}
 }

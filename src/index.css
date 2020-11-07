@@ -133,7 +133,6 @@ body {
         -ms-flex-align: center;
             align-items: center;
     width: 100%;
-    max-width: 1000px;
     padding: 10px;
     margin-bottom: 10px;
   }
@@ -143,10 +142,7 @@ body {
     color: white;
     border-radius: 50px;
     background-color: #0099ff;
-    transition: all 0.2s ease 0s;
-    -o-transition: all 0.2s ease 0s;
-    -moz-transition: all 0.2s ease 0s;
-    -webkit-transition: all 0.2s ease 0s;
+    margin: 5px 0px;
   }
 }
 
@@ -187,14 +183,12 @@ body {
     margin-bottom: 10px;
   }
   button {
+    width: inherit;
     font-size: inherit;
     color: white;
     border-radius: 30px;
     background-color: #0099ff;
-    transition: all 0.2s ease 0s;
-    -o-transition: all 0.2s ease 0s;
-    -moz-transition: all 0.2s ease 0s;
-    -webkit-transition: all 0.2s ease 0s;
+    margin: 5px 0px;
   }
 }
 
@@ -218,7 +212,6 @@ body {
 
 input {
   font-size: 30px;
-  max-width: 150px;
   border-radius: 5px;
 }
 
@@ -248,34 +241,18 @@ select {
   text-align: center;
 }
 
-span {
-  margin-right: 10px;
-}
-
-span .gray {
-  background-color: #dbdbdb;
-  border-radius: 5px;
-}
-
-span .red {
-  background-color: rgba(255, 0, 0, 0.5);
-  border-radius: 5px;
-}
-
-span .green {
-  background-color: rgba(0, 206, 0, 0.5);
-  border-radius: 5px;
-}
-
 .gray {
+  border-radius: 5px;
   background-color: #dbdbdb;
 }
 
 .red {
+  border-radius: 5px;
   background-color: rgba(255, 0, 0, 0.5);
 }
 
 .green {
+  border-radius: 5px;
   background-color: rgba(0, 206, 0, 0.5);
 }
 

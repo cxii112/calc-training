@@ -6,7 +6,7 @@ class Exercise extends React.Component {
     this.state = {
       load: undefined,
       operator: props.operator,
-      solveToFinish:  props.solveToFinish ? props.solveToFinish : 5,
+      solveToFinish: props.solveToFinish ? props.solveToFinish : 5,
       factor: props.factor ? props.factor : 2,
       first: props.first ? props.first : 2,
       second: props.second ? props.second : 1,
@@ -165,7 +165,7 @@ class Exercise extends React.Component {
     if (this.state.total >= this.state.solveToFinish) {
       finish = (
         <button
-          className='content'
+          className=''
           type='button'
           onClick={this.handleChanges}
           name='load'
@@ -176,7 +176,7 @@ class Exercise extends React.Component {
     } else {
       finish = (
         <button
-          className='content gray'
+          className='gray'
           type='button'
           name='load'
           value='stats'>
@@ -185,29 +185,31 @@ class Exercise extends React.Component {
       );
     }
     return (
-      <div className='container'>
+      <div className='Exercise container'>
         <div className='content'>
-          <span>{this.current.first}</span>
-          <span>{this.sym}</span>
-          <span>{this.current.second}</span>
-          <span>=</span>
-          <input
-            type='number'
-            name='current'
-            min='0'
-            placeholder='Ответ'
-            onChange={this.handleAnswer}
-          />
+          <div className=''>
+            <span>{this.current.first}</span>
+            <span>{this.sym}</span>
+            <span>{this.current.second}</span>
+            <span>=</span>
+            <input
+              type='number'
+              name='current'
+              min='0'
+              placeholder='Ответ'
+              onChange={this.handleAnswer}
+            />
+          </div>
           <button
-            className='content'
+            className=''
             type='button'
             name='answer'
             onClick={this.handleChanges}
           >
             Следующий
-        </button>
+          </button>
+          {finish}
         </div>
-        {finish}
       </div>
     )
   }
