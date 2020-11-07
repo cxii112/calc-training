@@ -7,6 +7,7 @@ class Exercise extends React.Component {
       load: undefined,
       operator: props.operator,
       solveToFinish: props.solveToFinish ? props.solveToFinish : 5,
+      current: '',
       factor: props.factor ? props.factor : 2,
       first: props.first ? props.first : 2,
       second: props.second ? props.second : 1,
@@ -37,6 +38,7 @@ class Exercise extends React.Component {
       first: 0,
       second: 0,
       correct: 0,
+      answer: '',
     }
     this.stats = {
       correct: 0,
@@ -49,8 +51,18 @@ class Exercise extends React.Component {
   }
 
   handleAnswer(event) {
-    this.current.answer = Number(event.target.value);
+    if (typeof (Number(event.target.value)) === 'number') {
+      this.current.answer = Number(event.target.value);
+      this.setState({
+        [event.target.name]: this.current.answer
+      })
+    } else {
+      this.setState({
+        [event.target.name]: ''
+      })
+    }
   }
+
 
   handleChanges(event) {
     const NAME = event.target.name;
@@ -75,12 +87,15 @@ class Exercise extends React.Component {
             break;
 
           case 'answer':
-            this.check();
-            this.setState({
-              total: this.stats.total,
-              correct: this.stats.correct,
-            });
-            this.generateEquasion();
+            if (this.check()) {
+              this.setState({
+                total: this.stats.total,
+                correct: this.stats.correct,
+                current: ''
+              });
+              this.generateEquasion();
+            }
+
             break;
 
           default:
@@ -94,10 +109,14 @@ class Exercise extends React.Component {
   }
 
   check() {
-    if (this.current.answer === this.current.correct) {
-      this.stats.correct++;
+    if (typeof (this.current.answer) === 'number') {
+      if (this.current.answer === this.current.correct) {
+        this.stats.correct++;
+      }
+      this.stats.total++;
+      return true;
     }
-    this.stats.total++;
+    return false;
   }
 
   generateEquasion() {
@@ -187,18 +206,21 @@ class Exercise extends React.Component {
     return (
       <div className='Exercise container'>
         <div className='content'>
-          <div className=''>
-            <span>{this.current.first}</span>
-            <span>{this.sym}</span>
-            <span>{this.current.second}</span>
-            <span>=</span>
-            <input
-              type='number'
-              name='current'
-              min='0'
-              placeholder='Ответ'
-              onChange={this.handleAnswer}
-            />
+          <div className='container'>
+            <div>
+              <span>{this.current.first}</span>
+              <span>{this.sym}</span>
+              <span>{this.current.second}</span>
+              <span>=</span>
+              <input
+                type='number'
+                pattern='^[0-9]+$'
+                name='current'
+                placeholder='Ответ'
+                value={this.state.current}
+                onChange={this.handleAnswer}
+              />
+            </div>
           </div>
           <button
             className=''

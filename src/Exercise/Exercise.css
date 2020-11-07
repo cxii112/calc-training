@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .Exercise {
   position: relative;
   display: -webkit-box;
@@ -19,4 +20,19 @@
   font-size: 30px;
   width: 4em;
   border-radius: 5px;
+  border: 1px solid #0099ff;
+  /* рамка */
+  border-radius: 5px;
+  /* скругление полей формы */
+}
+
+.Exercise input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+
+.Exercise input[type="number"]::-webkit-outer-spin-button,
+.Exercise input[type="number"]::-webkit-inner-spin-button {
+  display: none;
 }

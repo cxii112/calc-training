@@ -15,10 +15,9 @@ class DevLog extends React.Component {
                   <span className='text__sectiontitle'>Известные баги, недороботки недочеты</span>
                   <div className='text__subsection'>
                      <div className='text__par'>
-                        <li className='red'>В некоторых случаях число генерируется неправильно и выдает 100-значное число. Лечится перезагрузкой, было замечено только на телефонах.</li>
+                        <li className=''>В некоторых случаях число генерируется неправильно и выдает 100-значное число. Лечится перезагрузкой, было замечено только на телефонах.</li>
                         <li>Не отображает верен или нет ответ.</li>
                         <li className='red'>Нет списка нерешенных примеров. Ну или хотя бы списка всех примеров.</li>
-                        <li className='red'>Не обнуляет поле ввода.</li>
                         <li>Внешний вид примеров и статистики вообще в нуле.</li>
                         <li>При горизонтальном повороте телефона кнопки "Помощь" и "DevLog" прячутся за остальные.</li>
                         <li className='red'>Наверное стоит переписать "Помощь".</li>
@@ -32,6 +31,7 @@ class DevLog extends React.Component {
                   <div className='text__subsection'>
                      <span className='text__subtitle'>Добавлено</span>
                      <div className='text__par'>
+                        <li>Защита от ввода текста</li>
                         <li>Ну собственно этот раздел.</li>
                         <li>Помощь.</li>
                         <li>Анимации.</li>
@@ -43,6 +43,7 @@ class DevLog extends React.Component {
                   <div className='text__subsection'>
                      <span className='text__subtitle'>Изменено</span>
                      <div className='text__par'>
+                        <li className='green'>Обнуление поля ответа.</li>
                         <li>Внешний вид главного меню.</li>
                         <li>Внешний вид некоторых элементов.</li>
                         <li>Не знаю стоит ли писать о внутренних изменениях, но они были. :D</li>
@@ -64,7 +65,6 @@ class DevLog extends React.Component {
                      <span className='text__subtitle'>Добавить</span>
                      <div className='text__par'>
                         <p>УХХХХХ.... ПОГНАЛИ!</p>
-                        <li>Обнуление поля ввода ответа.</li>
                         <li>Список неправильных ответов. Ну или вообще список ответов.</li>
                         <li>Отображение корректности ответа. Хотя, возможно, оно и не надо вовсе, если выводить номер и список ответов.</li>
                         <li>"Помощь" для упражнений и статистики.</li>

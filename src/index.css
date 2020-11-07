@@ -201,6 +201,9 @@ body {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
+  button.gray {
+    border-radius: 50px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -208,11 +211,15 @@ body {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
+  button.gray {
+    border-radius: 30px;
+  }
 }
 
 input {
   font-size: 30px;
   border-radius: 5px;
+  text-align: end;
 }
 
 .number {
