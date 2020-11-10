@@ -45,14 +45,14 @@ class App extends React.Component {
         <button
           type='button'
           name='devLog'
-          //value='true'
+          value='true'
           onClick={this.handleChanges}>
           DevLog
         </button>
         <button
           type='button'
           name='usage'
-          //value='true'
+          value='true'
           onClick={this.handleChanges}>
           Помощь
         </button>

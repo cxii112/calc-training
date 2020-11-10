@@ -351,7 +351,7 @@ class Greet extends React.Component {
 
 
     return (
-      <div className='Greet container' >
+      <div className='Greet' >
         <button
           className='content'
           type='button'
