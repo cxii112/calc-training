@@ -47,6 +47,7 @@ class Greet extends React.Component {
     }
 
     this.handleChanges = this.handleChanges.bind(this);
+    this.inputHandle = this.inputHandle.bind(this);
   }
 
   changeTitles(operator) {
@@ -80,15 +81,32 @@ class Greet extends React.Component {
         <span className='number__title'>
           {this.titles.first}
         </span>
-        <input
-          className='number__input'
-          type='number'
-          name='first'
-          min={this.mins.first}
-          max={this.maxs.first}
-          value={this.state.first}
-          step='1'
-          onChange={this.handleChanges} />
+        <span className='number__input'>
+          <button
+            type='button'
+            className='number__minus'
+            name='first'
+            value='minus'
+            onClick={this.handleChanges} >
+            -
+          </button>
+          <input
+            className='number__display'
+            name='fisrt'
+            type='text'
+            pattern='^[0-9]+$'
+            value={this.state.first}
+            readOnly={true}
+          />
+          <button
+            type='button'
+            className='number__minus'
+            name='first'
+            value='plus'
+            onClick={this.handleChanges} >
+            +
+          </button>
+        </span>
       </div>
     );
     let limitSecond = (
@@ -96,15 +114,32 @@ class Greet extends React.Component {
         <span className='number__title'>
           {this.titles.second}
         </span>
-        <input
-          className='number__input'
-          type='number'
-          name='second'
-          min={this.mins.second}
-          max={this.maxs.second}
-          value={this.state.second}
-          step='1'
-          onChange={this.handleChanges} />
+        <span className='number__input'>
+          <button
+            type='button'
+            className='number__minus'
+            name='second'
+            value='minus'
+            onClick={this.handleChanges} >
+            -
+          </button>
+          <input
+            className='number__display'
+            name='second'
+            type='text'
+            pattern='^[0-9]+$'
+            value={this.state.second}
+            readOnly={true}
+          />
+          <button
+            type='button'
+            className='number__minus'
+            name='second'
+            value='plus'
+            onClick={this.handleChanges} >
+            +
+          </button>
+        </span>
       </div>
     );
     let limitFactor = (
@@ -112,16 +147,32 @@ class Greet extends React.Component {
         <span className='number__title'>
           {this.titles.factor}
         </span>
-        <input
-          className='number__input'
-          type='number'
-          name='factor'
-          min={this.mins.factor}
-          max={this.maxs.factor}
-          value={this.state.factor}
-          step='1'
-          onChange={this.handleChanges} />
-        
+        <span className='number__input'>
+          <button
+            type='button'
+            className='number__minus'
+            name='factor'
+            value='minus'
+            onClick={this.handleChanges} >
+            -
+          </button>
+          <input
+            className='number__display'
+            name='factor'
+            type='text'
+            pattern='^[0-9]+$'
+            value={this.state.factor}
+            readOnly={true}
+          />
+          <button
+            type='button'
+            className='number__minus'
+            name='factor'
+            value='plus'
+            onClick={this.handleChanges} >
+            +
+          </button>
+        </span>
       </div>
     );
     switch (operator) {
@@ -158,12 +209,21 @@ class Greet extends React.Component {
     )
   }
 
+  inputHandle(event) {
+    const NAME = event.target.name;
+    const TYPE = event.target.type;
+    const VALUE = event.target.value;
+
+  }
+
   handleChanges(event) {
     const NAME = event.target.name;
     const TYPE = event.target.type;
 
     let value = event.target.value;
 
+
+    console.log(NAME + ' ' + value);
     switch (TYPE) {
       case 'number':
         switch (NAME) {
@@ -192,9 +252,83 @@ class Greet extends React.Component {
         break;
 
       case 'button':
-        this.setState({
-          [NAME]: value
-        })
+        switch (NAME) {
+          case 'factor':
+            switch (value) {
+              case 'minus':
+                console.log(NAME + ' ' + value);
+                if (this.state.factor - 1 >= this.mins.factor) {
+                  this.setState({
+                    factor: --this.state.factor
+                  })
+                }
+                break;
+              case 'plus':
+                console.log(NAME + ' ' + value);
+                if (this.state.factor + 1 <= this.maxs.factor) {
+                  this.setState({
+                    factor: ++this.state.factor
+                  })
+                }
+                break;
+
+              default:
+                break;
+            }
+            break;
+          case 'first':
+            switch (value) {
+              case 'minus':
+                console.log(NAME + ' ' + value);
+                if (this.state.first - 1 >= this.mins.first) {
+                  this.setState({
+                    first: --this.state.first
+                  })
+                }
+                break;
+              case 'plus':
+                console.log(NAME + ' ' + value);
+                if (this.state.first + 1 <= this.maxs.first) {
+                  this.setState({
+                    first: ++this.state.first
+                  })
+                }
+                break;
+
+              default:
+                break;
+            }
+            break;
+          case 'second':
+            switch (value) {
+              case 'minus':
+                console.log(NAME + ' ' + value);
+                if (this.state.second - 1 >= this.mins.second) {
+                  this.setState({
+                    second: --this.state.second
+                  })
+                }
+                break;
+              case 'plus':
+                console.log(NAME + ' ' + value);
+                if (this.state.second + 1 <= this.maxs.second) {
+                  this.setState({
+                    second: ++this.state.second
+                  })
+                }
+                break;
+
+              default:
+                break;
+            }
+            break;
+
+          default:
+            this.setState({
+              [NAME]: value
+            });
+            break;
+        }
         break;
 
       case 'select-one':

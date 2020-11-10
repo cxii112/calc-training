@@ -22,6 +22,11 @@ class App extends React.Component {
       total: props.total ? props.total : 0,
     }
 
+    this.mins = {
+      first: 1,
+      second: 1,
+      factor: 2,
+    }
     this.maxs = {
       first: 3,
       second: 3,
@@ -134,32 +139,93 @@ class App extends React.Component {
 
       case 'button':
         switch (NAME) {
-          case 'usage':
-            this.setState({
-              usage: !this.state.usage
-            })
+          case 'factor':
+            switch (value) {
+              case 'minus':
+                console.log(NAME + ' ' + value);
+                if (this.state.factor - 1 >= this.mins.factor) {
+                  this.setState({
+                    factor: --this.state.factor
+                  })
+                }
+                break;
+              case 'plus':
+                console.log(NAME + ' ' + value);
+                if (this.state.factor + 1 <= this.maxs.factor) {
+                  this.setState({
+                    factor: ++this.state.factor
+                  })
+                }
+                break;
+
+              default:
+                break;
+            }
             break;
-          case 'devLog':
-            this.setState({
-              devLog: true
-            })
+          case 'first':
+            switch (value) {
+              case 'minus':
+                console.log(NAME + ' ' + value);
+                if (this.state.first - 1 >= this.mins.first) {
+                  this.setState({
+                    first: --this.state.first
+                  })
+                }
+                break;
+              case 'plus':
+                console.log(NAME + ' ' + value);
+                if (this.state.first + 1 <= this.maxs.first) {
+                  this.setState({
+                    first: ++this.state.first
+                  })
+                }
+                break;
+
+              default:
+                break;
+            }
             break;
+          case 'second':
+            switch (value) {
+              case 'minus':
+                console.log(NAME + ' ' + value);
+                if (this.state.second - 1 >= this.mins.second) {
+                  this.setState({
+                    second: --this.state.second
+                  })
+                }
+                break;
+              case 'plus':
+                console.log(NAME + ' ' + value);
+                if (this.state.second + 1 <= this.maxs.second) {
+                  this.setState({
+                    second: ++this.state.second
+                  })
+                }
+                break;
+
+              default:
+                break;
+            }
+            break;
+
           default:
             this.setState({
               [NAME]: value
-            })
+            });
             break;
         }
         break;
 
       case 'select-one':
+        // this.changeTitles(VALUE);
         this.setState({
           [NAME]: value
         })
         break;
       default:
         break;
-    }
+    };
   }
 
   render() {
