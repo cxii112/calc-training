@@ -36,3 +36,7 @@
 .Exercise input[type="number"]::-webkit-inner-spin-button {
   display: none;
 }
+
+.Exercise button {
+  max-width: 500px;
+}

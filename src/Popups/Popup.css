@@ -113,6 +113,16 @@
   scrollbar-width: none;
 }
 
+li {
+  list-style: none;
+  padding: 5px;
+}
+
+li:before {
+  content: "\003E\003E\003E";
+  padding-right: 10px;
+}
+
 .closing {
   -webkit-animation: closing 0.5s ease-in-out forwards;
           animation: closing 0.5s ease-in-out forwards;
@@ -156,14 +166,4 @@
     -webkit-transform: translate(0%, 0%);
             transform: translate(0%, 0%);
   }
-}
-
-li {
-  list-style: none;
-  padding: 5px;
-}
-
-li:before {
-  content: "\003E\003E\003E";
-  padding-right: 10px;
 }

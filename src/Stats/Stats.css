@@ -3,18 +3,46 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-height: inherit;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow-x: hidden;
+  overflow-y: visible;
+  scrollbar-width: none;
+  width: 100%;
+  min-width: 300px;
+  min-height: 100vh;
 }
 
 .Stats span {
   justify-self: flex-end;
-  margin-right: 10px;
+  margin: 0px 10px;
+}
+
+.Stats li {
+  list-style: none;
+  padding: 5px;
+}
+
+.Stats li:before {
+  content: "";
+  padding-right: 10px;
+}
+
+.Stats__container {
+  position: absolute;
+  top: 50px;
+  min-width: inherit;
+  max-width: inherit;
+  width: auto;
+  height: auto;
+  scrollbar-width: none;
+  padding: 50px 0px;
+}
+
+.Stats__content {
+  position: relative;
+  scrollbar-width: none;
 }

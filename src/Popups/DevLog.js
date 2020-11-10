@@ -6,7 +6,7 @@ class DevLog extends React.Component {
       this.state = {
          load: props.load ? props.load : 'greet',
       }
-      this.lastUpdated = '07.11.2020';
+      this.lastUpdated = '10.11.2020';
       this.onClick = this.popupToggle.bind(this);
       this.content = (
          <div className=''>
@@ -16,10 +16,7 @@ class DevLog extends React.Component {
                   <div className='text__subsection'>
                      <div className='text__par'>
                         <li className=''>В некоторых случаях число генерируется неправильно и выдает 100-значное число. Лечится перезагрузкой, было замечено только на телефонах.</li>
-                        <li>Не отображает верен или нет ответ.</li>
-                        <li className='red'>Нет списка нерешенных примеров. Ну или хотя бы списка всех примеров.</li>
-                        <li>Внешний вид примеров и статистики вообще в нуле.</li>
-                        <li>При горизонтальном повороте телефона кнопки "Помощь" и "DevLog" прячутся за остальные.</li>
+                        <li>Внешний вид примеров и статистики требует доработки.</li>
                         <li className='red'>Наверное стоит переписать "Помощь".</li>
                         <li>Пустая "Помощь" для статистики и упражнения.</li>
                         <li>Не хватает картинок.</li>
@@ -31,12 +28,14 @@ class DevLog extends React.Component {
                   <div className='text__subsection'>
                      <span className='text__subtitle'>Добавлено</span>
                      <div className='text__par'>
+                        <li>Автофокусировка на поле ввода</li>
                         <li>Защита от ввода текста</li>
                         <li>Ну собственно этот раздел.</li>
                         <li>Помощь.</li>
                         <li>Анимации.</li>
                         <li>Выделения цветом.</li>
                         <li className='green'>Проверка ввода.</li>
+                        <li className='green'>Список примеров.</li>
                         <li>Минимальное количество примеров для завершения и отображения количества.</li>
                      </div>
                   </div>
@@ -46,6 +45,7 @@ class DevLog extends React.Component {
                         <li className='green'>Обнуление поля ответа.</li>
                         <li>Внешний вид главного меню.</li>
                         <li>Внешний вид некоторых элементов.</li>
+                        <li>Проверка ввода. Больше нельзя ответить на первый и нажимать "Следующий"</li>
                         <li>Не знаю стоит ли писать о внутренних изменениях, но они были. :D</li>
                         <li className='green'>Теперь при переходе к упражнению модальное окно как и положено прячется.</li>
                         <li className='green'>При выборе <b>любого</b> оператора подписи не пропадают.</li>

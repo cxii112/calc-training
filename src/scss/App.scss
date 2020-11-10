@@ -6,10 +6,11 @@ $color-accent-gray: rgba(#ebebeb, 1);
 .App {
   position: relative;
   display: flex;
-  flex: 0 0 auto;
+  //flex: 0 0 auto;
   justify-content: center;
   align-items: center;
   z-index: 10;
+  overflow-y: visible;
 }
 .options {
   display: flex;

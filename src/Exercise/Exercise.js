@@ -8,6 +8,7 @@ class Exercise extends React.Component {
       operator: props.operator,
       solveToFinish: props.solveToFinish ? props.solveToFinish : 5,
       current: '',
+      autoFocus: false,
       factor: props.factor ? props.factor : 2,
       first: props.first ? props.first : 2,
       second: props.second ? props.second : 1,
@@ -44,6 +45,8 @@ class Exercise extends React.Component {
       correct: 0,
       total: 0,
     }
+
+    this.equasions = [];
 
     this.handleChanges = this.handleChanges.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
@@ -83,6 +86,7 @@ class Exercise extends React.Component {
               [NAME]: VALUE,
             });
             this.props.statsUpd(this.stats);
+            this.props.handleEquasions(this.equasions);
             this.props.handleChanges(event);
             break;
 
@@ -91,7 +95,8 @@ class Exercise extends React.Component {
               this.setState({
                 total: this.stats.total,
                 correct: this.stats.correct,
-                current: ''
+                current: '',
+                autoFocus: true,
               });
               this.generateEquasion();
             }
@@ -113,9 +118,19 @@ class Exercise extends React.Component {
       if (this.current.answer === this.current.correct) {
         this.stats.correct++;
       }
+
+      this.equasions.push({
+        first: this.current.first,
+        second: this.current.second,
+        answer: this.current.answer,
+        correct: this.current.correct
+      });
+
+      this.current.answer = '';
       this.stats.total++;
       return true;
     }
+
     return false;
   }
 
@@ -180,11 +195,10 @@ class Exercise extends React.Component {
 
   render() {
     let finish;
-    ;
     if (this.state.total >= this.state.solveToFinish) {
       finish = (
         <button
-          className=''
+          className='content'
           type='button'
           onClick={this.handleChanges}
           name='load'
@@ -195,11 +209,11 @@ class Exercise extends React.Component {
     } else {
       finish = (
         <button
-          className='gray'
+          className='gray content'
           type='button'
           name='load'
           value='stats'>
-          {this.stats.total + 1} из {this.state.solveToFinish}
+          До завершения {this.state.solveToFinish - this.stats.total}
         </button>
       );
     }
@@ -219,11 +233,13 @@ class Exercise extends React.Component {
                 placeholder='Ответ'
                 value={this.state.current}
                 onChange={this.handleAnswer}
+                autoFocus={true}
+              //onFocusCapture={this.state.autoFocus}
               />
             </div>
           </div>
           <button
-            className=''
+            className='content'
             type='button'
             name='answer'
             onClick={this.handleChanges}

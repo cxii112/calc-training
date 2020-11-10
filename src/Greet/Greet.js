@@ -121,6 +121,7 @@ class Greet extends React.Component {
           value={this.state.factor}
           step='1'
           onChange={this.handleChanges} />
+        
       </div>
     );
     switch (operator) {
@@ -181,7 +182,7 @@ class Greet extends React.Component {
               value = this.maxs.factor;
             }
             break;
-        
+
           default:
             break;
         }

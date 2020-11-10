@@ -14,7 +14,7 @@ class App extends React.Component {
       usage: false,
       devLog: false,
       operator: 'sum',
-      solveToFinish: 3,
+      solveToFinish: props.status === 'dev' ? 3 : 10,
       factor: props.factor ? props.factor : 5,
       first: props.first ? props.first : 1,
       second: props.second ? props.second : 1,
@@ -28,6 +28,9 @@ class App extends React.Component {
       factor: 9,
     }
 
+    this.equasions = [];
+
+    this.handleEquasions = this.handleEquasions.bind(this);
     this.handleChanges = this.handleChanges.bind(this);
     this.statsUpd = this.statsUpd.bind(this);
     this.popupToggle = this.popupToggle.bind(this);
@@ -57,6 +60,10 @@ class App extends React.Component {
       total: newStats.total,
       correct: newStats.correct,
     })
+  }
+
+  handleEquasions(array) {
+    this.equasions = array.slice();
   }
 
   popupToggle(event) {
@@ -180,17 +187,19 @@ class App extends React.Component {
             second={this.state.second}
             solveToFinish={this.state.solveToFinish}
             handleChanges={this.handleChanges}
-            statsUpd={this.statsUpd} />
+            statsUpd={this.statsUpd}
+            handleEquasions={this.handleEquasions} />
         )
         break;
 
       case 'stats':
         load = (
           <Stats
-            //operator={this.state.operator}
+            operator={this.state.operator}
             correct={this.state.correct}
             total={this.state.total}
-            handleChanges={this.handleChanges} />
+            handleChanges={this.handleChanges}
+            equasions={this.equasions} />
         )
         break;
 
@@ -206,22 +215,6 @@ class App extends React.Component {
 
     return (
       <div className='container'>
-        {/* <div className='options'>
-          <button
-            type='button'
-            name='devLog'
-            value='true'
-            onClick={this.popupToggle}>
-            DevLog
-        </button>
-          <button
-            type='button'
-            name='usage'
-            value='true'
-            onClick={this.popupToggle}>
-            Помощь
-        </button>
-        </div> */}
         {OPTIONS}
         <div className='content'>
           <div className='App'>
