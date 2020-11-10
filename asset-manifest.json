@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/calc-training/static/css/main.0ad6eced.chunk.css",
+    "main.css": "/calc-training/static/css/main.bc88e9d3.chunk.css",
     "main.js": "/calc-training/static/js/main.7cebc91d.chunk.js",
     "main.js.map": "/calc-training/static/js/main.7cebc91d.chunk.js.map",
     "runtime-main.js": "/calc-training/static/js/runtime-main.51510248.js",
@@ -10,13 +10,13 @@
     "static/js/3.f64f89e5.chunk.js": "/calc-training/static/js/3.f64f89e5.chunk.js",
     "static/js/3.f64f89e5.chunk.js.map": "/calc-training/static/js/3.f64f89e5.chunk.js.map",
     "index.html": "/calc-training/index.html",
-    "static/css/main.0ad6eced.chunk.css.map": "/calc-training/static/css/main.0ad6eced.chunk.css.map",
+    "static/css/main.bc88e9d3.chunk.css.map": "/calc-training/static/css/main.bc88e9d3.chunk.css.map",
     "static/js/2.88be4115.chunk.js.LICENSE.txt": "/calc-training/static/js/2.88be4115.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.51510248.js",
     "static/js/2.88be4115.chunk.js",
-    "static/css/main.0ad6eced.chunk.css",
+    "static/css/main.bc88e9d3.chunk.css",
     "static/js/main.7cebc91d.chunk.js"
   ]
 }
