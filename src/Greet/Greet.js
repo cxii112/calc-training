@@ -47,7 +47,6 @@ class Greet extends React.Component {
     }
 
     this.handleChanges = this.handleChanges.bind(this);
-    this.inputHandle = this.inputHandle.bind(this);
   }
 
   changeTitles(operator) {
@@ -177,18 +176,30 @@ class Greet extends React.Component {
     );
     switch (operator) {
       case 'mul':
-        result = (
-          <div className='container gray'>
-            <div className=''>
-              <div>Число разрядов в</div>
-              {limitFirst}
-              {limitSecond}
+        if ((this.state.first === 1) && (this.state.second === 1)) {
+          result = (
+            <div className='container gray'>
+              <div className=''>
+                <div>Число разрядов в</div>
+                {limitFirst}
+                {limitSecond}
+              </div>
+              <div className=''>
+                {limitFactor}
+              </div>
+            </div>);
+        } else {
+          result = (
+            <div className='container gray'>
+              <div className=''>
+                <div>Число разрядов в</div>
+                {limitFirst}
+                {limitSecond}
+              </div>
             </div>
-            <div className=''>
-              {limitFactor}
-            </div>
-          </div>
-        );
+          );
+
+        }
         break;
 
       default:
@@ -207,13 +218,6 @@ class Greet extends React.Component {
     return (
       result
     )
-  }
-
-  inputHandle(event) {
-    const NAME = event.target.name;
-    const TYPE = event.target.type;
-    const VALUE = event.target.value;
-
   }
 
   handleChanges(event) {

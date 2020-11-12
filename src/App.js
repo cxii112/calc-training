@@ -46,15 +46,15 @@ class App extends React.Component {
           type='button'
           name='devLog'
           value='true'
-          onClick={this.handleChanges}>
+          onClick={this.popupToggle}>
           DevLog
         </button>
         <button
           type='button'
           name='usage'
           value='true'
-          onClick={this.handleChanges}>
-          Помощь
+          onClick={this.popupToggle}>
+          Использование
         </button>
       </div>
     );
@@ -72,20 +72,22 @@ class App extends React.Component {
   }
 
   popupToggle(event) {
-    // const CN = event.currentTarget;
-    // CN.classList.toggle('open');
-    console.log(`popup ${event.target.name}`)
-    const NAME = event.target.name;
-    if (this.state.usage) {
-      this.setState({
-        usage: !this.state.usage
-      });
-    }
-    if (this.state.devLog) {
-      this.setState({
-        devLog: !this.state.devLog
-      });
-    }
+    //const CN = event.target;
+    //CN.classList.toggle('open');
+    console.log(`popup ${event.target.name}`);
+    const TARGET = document.getElementById('popup');
+    TARGET.classList.toggle('open');
+    //const NAME = event.target.name;
+    // if (this.state.usage) {
+    //   this.setState({
+    //     usage: !this.state.usage
+    //   });
+    // }
+    // if (this.state.devLog) {
+    //   this.setState({
+    //     devLog: !this.state.devLog
+    //   });
+    // }
     // switch (NAME) {
     //   case 'usage':
     //     this.setState({
@@ -105,9 +107,7 @@ class App extends React.Component {
 
   handleChanges(event) {
     const NAME = event.target.name;
-    //const VALUE = event.target.value;
     const TYPE = event.target.type;
-    //console.log(TYPE);
     let value = event.target.value;
 
     switch (TYPE) {
@@ -218,7 +218,6 @@ class App extends React.Component {
         break;
 
       case 'select-one':
-        // this.changeTitles(VALUE);
         this.setState({
           [NAME]: value
         })
@@ -236,12 +235,14 @@ class App extends React.Component {
     let usage;
     let devLog;
 
-    if (this.state.usage) {
-      usage = (<Usage onClick={this.popupToggle} />);
-    }
-    if (this.state.devLog) {
-      devLog = (<DevLog onClick={this.popupToggle} />);
-    }
+    // if (this.state.usage) {
+    //   usage = (<Usage onClick={this.popupToggle} />);
+    // }
+    // if (this.state.devLog) {
+    //   devLog = (<DevLog onClick={this.popupToggle} />);
+    // }
+    usage = (<Usage onClick={this.popupToggle} />);
+    devLog = (<DevLog onClick={this.popupToggle} />);
 
     switch (this.state.load) {
       case 'exercise':

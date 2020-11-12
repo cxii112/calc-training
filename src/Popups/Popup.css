@@ -106,11 +106,14 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  top: -5px;
+  top: 100%;
   left: 0px;
   overflow-x: hidden;
   overflow-y: visible;
   scrollbar-width: none;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 li {
@@ -126,6 +129,10 @@ li:before {
 .date {
   font-size: 15px;
   padding: 0px 0px 0px 20px;
+}
+
+.open {
+  top: 0px;
 }
 
 .closing {
@@ -155,7 +162,8 @@ li:before {
 
 @-webkit-keyframes popup {
   0% {
-    top: 200%;
+    -webkit-transform: translate(0%, 50%);
+            transform: translate(0%, 50%);
   }
   100% {
     -webkit-transform: translate(0%, 0%);
@@ -165,7 +173,8 @@ li:before {
 
 @keyframes popup {
   0% {
-    top: 200%;
+    -webkit-transform: translate(0%, 50%);
+            transform: translate(0%, 50%);
   }
   100% {
     -webkit-transform: translate(0%, 0%);

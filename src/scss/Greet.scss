@@ -50,12 +50,12 @@ $color-accent-green: rgba(#00ce00, 0.5);
     }
     .number__minus,
     .number__plus {
-      display: inline-block;
-      min-width: 20px;
+      min-width: 30px;
       padding: 0px 5px;
-      text-align: center;
+      border-radius: 10px;
+      // text-align: center;
       align-items: center;
-      justify-content: center;
+      // justify-content: center;
       //user-select: none;
     }
   }
@@ -82,12 +82,11 @@ $color-accent-green: rgba(#00ce00, 0.5);
     }
     .number__minus,
     .number__plus {
-      display: inline-block;
       min-width: 10px;
       padding: 0px 5px;
-      text-align: center;
+      // text-align: center;
       align-items: center;
-      justify-content: center;
+      // justify-content: center;
       //user-select: none;
     }
   }

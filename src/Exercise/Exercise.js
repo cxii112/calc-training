@@ -22,10 +22,10 @@ class Exercise extends React.Component {
         this.sym = '+'
         break;
       case 'decr':
-        this.sym = '-'
+        this.sym = '−'
         break;
       case 'mul':
-        this.sym = '*'
+        this.sym = '∙'
         break;
       case 'frac':
         this.sym = ':'
@@ -156,7 +156,7 @@ class Exercise extends React.Component {
         this.current.correct = this.current.first - this.current.second;
         break;
       case 'mul':
-        if (this.state.second >= 2) {
+        if ((this.state.second >= 2) || (this.state.first >= 2)) {
           this.current.first =
             Math.floor(Math.random() * (Math.pow(10, this.state.first)));
           this.current.second =

@@ -54,16 +54,12 @@
   }
   .Greet .number__minus,
   .Greet .number__plus {
-    display: inline-block;
-    min-width: 20px;
+    min-width: 30px;
     padding: 0px 5px;
-    text-align: center;
+    border-radius: 10px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
 }
 
@@ -88,15 +84,10 @@
   }
   .Greet .number__minus,
   .Greet .number__plus {
-    display: inline-block;
     min-width: 10px;
     padding: 0px 5px;
-    text-align: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
 }

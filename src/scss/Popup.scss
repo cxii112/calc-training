@@ -111,11 +111,13 @@ $color-accent-green: rgba(#00ce00, 0.5);
   height: auto;
   width: 100vw;
   justify-content: center;
-  top: -5px;
+  top: 100%;
   left: 0px;
   overflow-x: hidden;
   overflow-y: visible;
   scrollbar-width: none;
+  //animation: popup 0.3s ease 0s forwards;
+  transition: all 0.3s;
 }
 
 li {
@@ -132,6 +134,10 @@ li:before {
   padding: 0px 0px 0px 20px;
 }
 
+.open {
+  top: 0px;
+  //animation: popup 0.5s ease 0s forwards;
+}
 .closing {
   animation: closing 0.5s ease-in-out forwards;
 }
@@ -147,7 +153,8 @@ li:before {
 
 @keyframes popup {
   0% {
-    top: 200%;
+    // top: 50%;
+    transform: translate(0%, 50%);
   }
   100% {
     transform: translate(0%, 00%);
