@@ -50,10 +50,16 @@
 }
 
 .icon-angle-double-left-solid:before {
+  position: relative;
+  top: 50%;
+  left: 10%;
   content: "\e900";
 }
 
 .icon-angle-double-right-solid:before {
+  position: relative;
+  top: 50%;
+  left: 15%;
   content: "\e901";
 }
 

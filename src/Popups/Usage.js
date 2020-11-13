@@ -18,6 +18,7 @@ class Usage extends React.Component {
       load: props.load ? props.load : 'greet',
     };
 
+    this.slide = 0;
     this.imgs = {
       operator: operatorWebm,
       sum: sumWebm,
@@ -32,6 +33,10 @@ class Usage extends React.Component {
       mul: mulVideo,
       frac: fracVideo
     }
+
+    this.message = (
+      <p className='message'><i>Убедительная просьба заглядывать в DevLog, прежде чем ругаться о недочетаx и т.п., возможно они уже в процессе исправления.</i></p>
+    )
 
     this.onClick = this.popupToggle.bind(this);
     this.greetUsage = (
@@ -131,38 +136,95 @@ class Usage extends React.Component {
         frac: this.getData().greet.frac,
       }
     }
-    this.slides = [];
-    this.slides.push(this.generateSlide(this.data.greet.operator));
-    //console.log(this.slides);
+    this.slides = this.generateSlides(this.data, this.state.load);
+
+    this.slidesSwitch = this.slidesSwitch.bind(this);
   }
 
   popupToggle(event) {
     this.props.onClick(event);
   }
 
+  slidesSwitch(event) {
+    const TARGET = event.target;
+    const VALUE = TARGET.value;
+    //const SLIDE = this.slide;
+    // const SLIDES = this.slides;
+    //let slides = this.slides;
+    let slides = document.getElementsByClassName('slide');
+    let slideNow = document.getElementsByClassName('now')[0];
+    let slideNum = this.slide;
+
+    switch (VALUE) {
+      case 'next':
+        if (slideNum + 1 < slides.length) {
+          slideNum++;
+          slideNow.classList.toggle('prev');
+          slideNow.classList.toggle('now');
+          slides[slideNum].classList.toggle('now');
+          this.slide = slideNum;
+        }
+        break;
+      case 'prev':
+        if (slideNum - 1 >= 0) {
+          slideNum--;
+          slideNow.classList.toggle('now');
+          slides[slideNum].classList.toggle('now');
+          slides[slideNum].classList.toggle('prev');
+          this.slide = slideNum;
+        }
+        break;
+
+      default:
+        break;
+    }
+    //const SLIDES = document.getElementsByClassName('slide');
+    // const CURRENT = document.getElementsByClassName('now');
+    // CURRENT.classList.toggle('prev');
+    // for (let item in SLIDES) {
+
+    // }
+  }
+
+  generateSlides(source, load) {
+    const KEYS = Object.keys(source[load]);
+    console.log(KEYS);
+    let result = Array(KEYS.length);
+    for (let i = 0; i < KEYS.length; i++) {
+      console.log(source[load][KEYS[i]]);
+      result[i] = (
+        <div className={i ? 'slide' : 'slide now'}>
+          {this.generateSlide(source[load][KEYS[i]])}
+        </div>
+      );
+    }
+    return (result);
+  }
   generateSlide(elem) {
     const TITLE = elem.title;
     const BODY = elem.body.map(
-      (subElem) => {
+      (subElem, index) => {
         const TYPE = subElem.type;
-        const BODY = subElem.body;
         switch (TYPE) {
           case 'par':
-            return (<p>{BODY}</p>);
+            const BODY = subElem.body;
+            return (<p key={index}>{BODY}</p>);
           case 'video':
             const KEY = subElem.key;
             const SOURCE_WEBM = this.imgs[KEY];
             const SOURCE_MP4 = this.videos[KEY];
             console.log(KEY);
             return (
-              <video
-                loop={true}
-                autoPlay={true}
-                muted={true}
-                className='content'>
-                <source src={SOURCE_WEBM} type="video/webm" />
-                <source src={SOURCE_MP4} type="video/mp4" />
-              </video>
+              <div className='container' key={index}>
+                <video
+                  loop={true}
+                  autoPlay={true}
+                  muted={true}
+                  className='content'>
+                  <source src={SOURCE_WEBM} type="video/webm" />
+                  <source src={SOURCE_MP4} type="video/mp4" />
+                </video>
+              </div>
             );
 
           default:
@@ -181,12 +243,16 @@ class Usage extends React.Component {
 
   render() {
     const LOAD = this.state.load;
+    const MSG = this.message;
+    const DATA = this.data;
+    const SLIDE = this.state.slide;
     let usage;
     switch (LOAD) {
       case 'greet':
         usage = this.greetUsage;
     }
-    const SLIDE = this.slides[0];
+    //const SLIDES = this.generateSlides(DATA, LOAD);
+    const SLIDES = this.slides;
     return (
       <div className='popup' id='usage-popup'>
         <div className='popup__container'>
@@ -195,10 +261,22 @@ class Usage extends React.Component {
               className='close icon-times-solid'
               name='usage-popup'
               onClick={this.onClick}></button>
-            <div className='text'>
-              <span className='text__title'>Использование</span>
-              <p><i>Убедительная просьба дочитать это руководство <b>до конца</b>, особенно если вы читаете его в первый раз. Взависимости от того на какой странице Вы находитесь будет меняться содержание этого руководства. Также просьба заглядывать в DevLog, прежде чем ругаться о недочетач и т.п., возможно они уже в процессе исправления.</i></p>
-              {SLIDE}
+            <span className='popup__title'>Использование</span>
+            <div className='container'>
+              <div className='slides'>
+                {SLIDES}
+              </div>
+            </div>
+            <div className='slides-controls'>
+              <button type='button'
+                onClick={this.slidesSwitch}
+                value='prev'
+                className='icon-angle-double-left-solid'>
+              </button>
+              <button type='button'
+                onClick={this.slidesSwitch}
+                value='next'
+                className='icon-angle-double-right-solid'></button>
             </div>
           </div>
         </div>

@@ -9,9 +9,10 @@ $color-accent-green: rgba(#00ce00, 0.5);
 
 @media screen and (min-width: 768px) {
   .text {
+    height: 100%;
     font-size: inherit;
   }
-  .text__title {
+  .popup__title {
     font-size: 42px;
   }
   .text__sectiontitle {
@@ -36,7 +37,7 @@ $color-accent-green: rgba(#00ce00, 0.5);
     min-width: inherit;
     max-width: inherit;
     width: auto;
-    height: auto;
+    height: 100%;
     background-color: transparent;
     scrollbar-width: none;
   }
@@ -45,8 +46,11 @@ $color-accent-green: rgba(#00ce00, 0.5);
     background-color: $color-accent-white;
     border-radius: 30px;
     padding: 30px;
+    height: auto;
     max-width: 1000px;
     scrollbar-width: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
     box-shadow: 0 0 40px $color-accent-gray-trancparent;
     p {
       padding-left: 20px;
@@ -67,7 +71,7 @@ $color-accent-green: rgba(#00ce00, 0.5);
       font-size: 20px;
     }
   }
-  .text__title {
+  .popup__title {
     font-size: 35px;
   }
   .text__sectiontitle {
@@ -91,8 +95,8 @@ $color-accent-green: rgba(#00ce00, 0.5);
     padding: 20px;
     min-width: inherit;
     max-width: inherit;
-    width: auto;
-    height: auto;
+    width: inherit;
+    height: inherit;
     background-color: transparent;
     scrollbar-width: none;
   }
@@ -102,6 +106,8 @@ $color-accent-green: rgba(#00ce00, 0.5);
     border-radius: 20px;
     padding: 20px;
     scrollbar-width: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
     box-shadow: 0 0 20px $color-accent-gray-trancparent;
     animation: popup 0.5s ease-in-out forwards;
     p {
@@ -120,34 +126,59 @@ $color-accent-green: rgba(#00ce00, 0.5);
   z-index: 50;
   position: absolute;
   display: flex;
-  min-height: 100vh;
-  height: auto;
+  height: 100vh;
   width: 100vw;
+  align-content: center;
   justify-content: center;
   top: 120%;
   //top: -5px;
   left: 0px;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden;
   scrollbar-width: none;
   opacity: 0;
   //animation: popup 0.3s ease 0s forwards;
   transition: all 0.5s;
-  button {
+  .close {
     position: absolute;
     right: 50px;
     z-index: 51;
-    transition: all 0.1s ease 0s;
   }
-  
 }
 video {
-    max-width: 500px;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    justify-self: center;
+  max-width: 700px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+}
+.slides {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.slide {
+  position: absolute;
+  left: 150%;
+  background-color: $color-accent-white;
+  transition: all 0.3s ease 0s;
+}
+.slides-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  button {
+    margin: 0px 10px;
   }
+}
+.now {
+  position: relative;
+  left: 0%;
+}
+.prev {
+  position: absolute;
+  left: -300vw;
+}
 #usage-popup {
   max-height: 100vh;
 }
@@ -157,7 +188,9 @@ video {
   position: absolute;
   right: 0px;
 }
-
+.message {
+  margin: 10px 0px;
+}
 li {
   list-style: none;
   padding: 5px;

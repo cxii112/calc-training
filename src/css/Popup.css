@@ -1,8 +1,9 @@
 @media screen and (min-width: 768px) {
   .text {
+    height: 100%;
     font-size: inherit;
   }
-  .text__title {
+  .popup__title {
     font-size: 42px;
   }
   .text__sectiontitle {
@@ -25,7 +26,7 @@
     min-width: inherit;
     max-width: inherit;
     width: auto;
-    height: auto;
+    height: 100%;
     background-color: transparent;
     scrollbar-width: none;
   }
@@ -34,8 +35,11 @@
     background-color: white;
     border-radius: 30px;
     padding: 30px;
+    height: auto;
     max-width: 1000px;
     scrollbar-width: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
     -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
   }
@@ -55,7 +59,7 @@
   .text p {
     font-size: 20px;
   }
-  .text__title {
+  .popup__title {
     font-size: 35px;
   }
   .text__sectiontitle {
@@ -77,8 +81,8 @@
     padding: 20px;
     min-width: inherit;
     max-width: inherit;
-    width: auto;
-    height: auto;
+    width: inherit;
+    height: inherit;
     background-color: transparent;
     scrollbar-width: none;
   }
@@ -88,6 +92,8 @@
     border-radius: 20px;
     padding: 20px;
     scrollbar-width: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     -webkit-animation: popup 0.5s ease-in-out forwards;
@@ -113,16 +119,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 100vh;
-  height: auto;
+  height: 100vh;
   width: 100vw;
+  -ms-flex-line-pack: center;
+      align-content: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   top: 120%;
   left: 0px;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden;
   scrollbar-width: none;
   opacity: 0;
   -webkit-transition: all 0.5s;
@@ -130,17 +137,14 @@
   transition: all 0.5s;
 }
 
-.popup button {
+.popup .close {
   position: absolute;
   right: 50px;
   z-index: 51;
-  -webkit-transition: all 0.1s ease 0s;
-  -o-transition: all 0.1s ease 0s;
-  transition: all 0.1s ease 0s;
 }
 
 video {
-  max-width: 500px;
+  max-width: 700px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -154,6 +158,47 @@ video {
       justify-self: center;
 }
 
+.slides {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.slide {
+  position: absolute;
+  left: 150%;
+  background-color: white;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.slides-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 0px;
+}
+
+.slides-controls button {
+  margin: 0px 10px;
+}
+
+.now {
+  position: relative;
+  left: 0%;
+}
+
+.prev {
+  position: absolute;
+  left: -300vw;
+}
+
 #usage-popup {
   max-height: 100vh;
 }
@@ -163,6 +208,10 @@ video {
   color: #000000;
   position: absolute;
   right: 0px;
+}
+
+.message {
+  margin: 10px 0px;
 }
 
 li {
