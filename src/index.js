@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
+import './css/iconsfont.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// const links = document.querySelectorAll('a');
+// for (item in links) {
+
+// }
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App load='greet' status=''/>
+    <App load='greet' status='' />
   </React.StrictMode>,
   document.getElementById('root')
 );

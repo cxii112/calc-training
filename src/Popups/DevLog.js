@@ -1,6 +1,6 @@
 import React from 'react';
-import './Popup.css';
-import JSONdata from './log.json';
+import '../css/Popup.css';
+import JSONdata from '../json/log.json';
 class DevLog extends React.Component {
    constructor(props) {
       super(props);
@@ -18,56 +18,56 @@ class DevLog extends React.Component {
          <li key={index}
             className={elem.colorise ? elem.colorise : ''}>
             <span>{elem.body}</span>
-            <div className='date'>
-               ({elem.date.day}.{elem.date.month}.{elem.date.year})</div>
+            <div className='date icon-calendar-day'>
+               {elem.date.day}.{elem.date.month}.{elem.date.year}</div>
          </li>
       );
       this.addedList = this.changes.added.content.map((elem, index) =>
          <li key={index}
             className={elem.colorise ? elem.colorise : ''}>
             <span>{elem.body}</span>
-            <div className='date'>
-               ({elem.date.day}.{elem.date.month}.{elem.date.year})</div>
+            <div className='date icon-calendar-day'>
+               {elem.date.day}.{elem.date.month}.{elem.date.year}</div>
          </li>
       );
       this.changedList = this.changes.changed.content.map((elem, index) =>
          <li key={index}
             className={elem.colorise ? elem.colorise : ''}>
             <span>{elem.body}</span>
-            <div className='date'>
-               ({elem.date.day}.{elem.date.month}.{elem.date.year})</div>
+            <div className='date icon-calendar-day'>
+               {elem.date.day}.{elem.date.month}.{elem.date.year}</div>
          </li>
       );
       this.deletedList = this.changes.deleted.content.map((elem, index) =>
          <li key={index}
             className={elem.colorise ? elem.colorise : ''}>
             <span>{elem.body}</span>
-            <div className='date'>
-               ({elem.date.day}.{elem.date.month}.{elem.date.year})</div>
+            <div className='date icon-calendar-day'>
+               {elem.date.day}.{elem.date.month}.{elem.date.year}</div>
          </li>
       );
       this.addList = this.plans.add.content.map((elem, index) =>
          <li key={index}
             className={elem.colorise ? elem.colorise : ''}>
             <span>{elem.body}</span>
-            <div className='date'>
-               ({elem.date.day}.{elem.date.month}.{elem.date.year})</div>
+            <div className='date icon-calendar-day'>
+               {elem.date.day}.{elem.date.month}.{elem.date.year}</div>
          </li>
       );
       this.changeList = this.plans.change.content.map((elem, index) =>
          <li key={index}
             className={elem.colorise ? elem.colorise : ''}>
             <span>{elem.body}</span>
-            <div className='date'>
-               ({elem.date.day}.{elem.date.month}.{elem.date.year})</div>
+            <div className='date icon-calendar-day'>
+               {elem.date.day}.{elem.date.month}.{elem.date.year}</div>
          </li>
       );
       this.deleteList = this.plans.delete.content.map((elem, index) =>
          <li key={index}
             className={elem.colorise ? elem.colorise : ''}>
             <span>{elem.body}</span>
-            <div className='date'>
-               ({elem.date.day}.{elem.date.month}.{elem.date.year})</div>
+            <div className='date icon-calendar-day'>
+               {elem.date.day}.{elem.date.month}.{elem.date.year}</div>
          </li>
       );
       //this.bugAndIssuesList = this.data().bugAndIssues.slice();
@@ -75,7 +75,7 @@ class DevLog extends React.Component {
       // console.log(this.changes);
       // console.log(this.plans);
       //console.log(this.bugAndIssuesList);
-      this.lastUpdated = '11.11.2020';
+      this.lastUpdated = '13.11.2020';
       this.onClick = this.popupToggle.bind(this);
       this.content = (
          <div className=''>
@@ -154,9 +154,13 @@ class DevLog extends React.Component {
             devLog = this.content;
       }
       return (
-         <div className='popup' name='devLog' onClick={this.onClick}>
+         <div className='popup' id='devLog-popup'>
             <div className='popup__container'>
                <div className='popup__content'>
+                  <button type='button'
+                     className='close icon-times-solid'
+                     name='devLog-popup'
+                     onClick={this.onClick}></button>
                   <div className='text'>
                      <span className='text__title'>DevLog</span>
                      <p>Здесь будет размещаться информация о ходе разработки и пр.</p>

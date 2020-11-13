@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
 import Greet from './Greet/Greet';
 import Exercise from './Exercise/Exercise';
 import Stats from './Stats/Stats';
@@ -43,18 +43,20 @@ class App extends React.Component {
     this.options = (
       <div className='options'>
         <button
+          className='icon-code-solid'
           type='button'
-          name='devLog'
+          name='devLog-popup'
           value='true'
           onClick={this.popupToggle}>
           DevLog
         </button>
         <button
+          className='icon-info-circle'
           type='button'
-          name='usage'
+          name='usage-popup'
           value='true'
           onClick={this.popupToggle}>
-          Использование
+          Помощь
         </button>
       </div>
     );
@@ -72,37 +74,10 @@ class App extends React.Component {
   }
 
   popupToggle(event) {
-    //const CN = event.target;
-    //CN.classList.toggle('open');
     console.log(`popup ${event.target.name}`);
-    const TARGET = document.getElementById('popup');
+    const NAME = event.target.name;
+    const TARGET = document.getElementById(NAME);
     TARGET.classList.toggle('open');
-    //const NAME = event.target.name;
-    // if (this.state.usage) {
-    //   this.setState({
-    //     usage: !this.state.usage
-    //   });
-    // }
-    // if (this.state.devLog) {
-    //   this.setState({
-    //     devLog: !this.state.devLog
-    //   });
-    // }
-    // switch (NAME) {
-    //   case 'usage':
-    //     this.setState({
-    //       usage: !this.state.usage
-    //     });
-    //     break;
-    //   case 'devLog':
-    //     this.setState({
-    //       devLog: !this.state.devLog
-    //     });
-    //     break;
-
-    //   default:
-    //     break;
-    //};
   }
 
   handleChanges(event) {
@@ -229,55 +204,54 @@ class App extends React.Component {
 
   render() {
     const OPERATOR = this.state.operator;
-    const LIMITS = this.state.limits;
+    const FIRST = this.state.first;
+    const SECOND = this.state.second;
+    const FACTOR = this.state.factor;
     const OPTIONS = this.options;
-    let load;
-    let usage;
-    let devLog;
+    const LOAD = this.state.load;
+    const SOLUTIONS = this.state.solveToFinish;
+    const CORRECT = this.state.correct;
+    const TOTAL = this.state.total;
 
-    // if (this.state.usage) {
-    //   usage = (<Usage onClick={this.popupToggle} />);
-    // }
-    // if (this.state.devLog) {
-    //   devLog = (<DevLog onClick={this.popupToggle} />);
-    // }
-    usage = (<Usage onClick={this.popupToggle} />);
-    devLog = (<DevLog onClick={this.popupToggle} />);
+    const EQUASIONS = this.equasions;
 
-    switch (this.state.load) {
-      case 'exercise':
-        load = (
-          <Exercise
-            operator={this.state.operator}
-            factor={this.state.factor}
-            first={this.state.first}
-            second={this.state.second}
-            solveToFinish={this.state.solveToFinish}
-            handleChanges={this.handleChanges}
-            statsUpd={this.statsUpd}
-            handleEquasions={this.handleEquasions} />
-        )
-        break;
+    const USAGE = (<Usage onClick={this.popupToggle} />);
+    const DEVlOG = (<DevLog onClick={this.popupToggle} />);
 
-      case 'stats':
-        load = (
-          <Stats
-            operator={this.state.operator}
-            correct={this.state.correct}
-            total={this.state.total}
-            handleChanges={this.handleChanges}
-            equasions={this.equasions} />
-        )
-        break;
+    const ACTION = (state) => {
+      switch (state) {
+        case 'exercise':
+          return (
+            <Exercise
+              operator={OPERATOR}
+              factor={FACTOR}
+              first={FIRST}
+              second={SECOND}
+              solveToFinish={SOLUTIONS}
+              handleChanges={this.handleChanges}
+              statsUpd={this.statsUpd}
+              handleEquasions={this.handleEquasions} />
+          );
+        case 'stats':
+          return (
+            <Stats
+              operator={OPERATOR}
+              correct={CORRECT}
+              total={TOTAL}
+              handleChanges={this.handleChanges}
+              equasions={EQUASIONS} />
+          );
 
-      default:
-        load = (<Greet
-          operator={this.state.operator}
-          factor={this.state.factor}
-          first={this.state.first}
-          second={this.state.second}
-          handleChanges={this.handleChanges} />)
-        break;
+        default:
+          return (
+            <Greet
+              operator={OPERATOR}
+              factor={FACTOR}
+              first={FIRST}
+              second={SECOND}
+              handleChanges={this.handleChanges} />
+          );
+      }
     }
 
     return (
@@ -285,11 +259,11 @@ class App extends React.Component {
         {OPTIONS}
         <div className='content'>
           <div className='App'>
-            {load}
+            {ACTION(LOAD)}
           </div>
         </div>
-        {usage}
-        {devLog}
+        {USAGE}
+        {DEVlOG}
       </div>);
   }
 }

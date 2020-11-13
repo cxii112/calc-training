@@ -1,5 +1,5 @@
 import React from 'react';
-import './Exercise.css';
+import '../css/Exercise.css';
 class Exercise extends React.Component {
   constructor(props) {
     super(props);
@@ -207,14 +207,13 @@ class Exercise extends React.Component {
         </button>
       );
     } else {
+      const TEXT = (`До завершения ${this.state.solveToFinish - this.stats.total}`);
       finish = (
         <button
-          className='gray content'
+          className='content gray'
           type='button'
           name='load'
-          value='stats'>
-          До завершения {this.state.solveToFinish - this.stats.total}
-        </button>
+          value='stats'>{TEXT}</button>
       );
     }
     return (

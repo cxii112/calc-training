@@ -1,5 +1,5 @@
 import React from 'react';
-import './Stats.css';
+import '../css/Stats.css';
 class Stats extends React.Component {
   constructor(props) {
     super(props);

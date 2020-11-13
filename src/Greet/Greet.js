@@ -1,5 +1,5 @@
 import React from 'react';
-import './Greet.css'
+import '../css/Greet.css'
 
 class Greet extends React.Component {
   constructor(props) {
@@ -73,151 +73,74 @@ class Greet extends React.Component {
     console.log(this.titles);
   }
 
-  limitsRender(operator) {
-    let result;
-    let limitFirst = (
-      <div className='number'>
-        <span className='number__title'>
-          {this.titles.first}
-        </span>
-        <span className='number__input'>
-          <button
-            type='button'
-            className='number__minus'
-            name='first'
-            value='minus'
-            onClick={this.handleChanges} >
-            -
-          </button>
-          <input
-            className='number__display'
-            name='fisrt'
-            type='text'
-            pattern='^[0-9]+$'
-            value={this.state.first}
-            readOnly={true}
-          />
-          <button
-            type='button'
-            className='number__minus'
-            name='first'
-            value='plus'
-            onClick={this.handleChanges} >
-            +
-          </button>
-        </span>
-      </div>
-    );
-    let limitSecond = (
-      <div className='number'>
-        <span className='number__title'>
-          {this.titles.second}
-        </span>
-        <span className='number__input'>
-          <button
-            type='button'
-            className='number__minus'
-            name='second'
-            value='minus'
-            onClick={this.handleChanges} >
-            -
-          </button>
-          <input
-            className='number__display'
-            name='second'
-            type='text'
-            pattern='^[0-9]+$'
-            value={this.state.second}
-            readOnly={true}
-          />
-          <button
-            type='button'
-            className='number__minus'
-            name='second'
-            value='plus'
-            onClick={this.handleChanges} >
-            +
-          </button>
-        </span>
-      </div>
-    );
-    let limitFactor = (
-      <div className='number'>
-        <span className='number__title'>
-          {this.titles.factor}
-        </span>
-        <span className='number__input'>
-          <button
-            type='button'
-            className='number__minus'
-            name='factor'
-            value='minus'
-            onClick={this.handleChanges} >
-            -
-          </button>
-          <input
-            className='number__display'
-            name='factor'
-            type='text'
-            pattern='^[0-9]+$'
-            value={this.state.factor}
-            readOnly={true}
-          />
-          <button
-            type='button'
-            className='number__minus'
-            name='factor'
-            value='plus'
-            onClick={this.handleChanges} >
-            +
-          </button>
-        </span>
-      </div>
-    );
-    switch (operator) {
-      case 'mul':
-        if ((this.state.first === 1) && (this.state.second === 1)) {
-          result = (
-            <div className='container gray'>
-              <div className=''>
-                <div>Число разрядов в</div>
-                {limitFirst}
-                {limitSecond}
-              </div>
-              <div className=''>
-                {limitFactor}
-              </div>
-            </div>);
-        } else {
-          result = (
-            <div className='container gray'>
-              <div className=''>
-                <div>Число разрядов в</div>
-                {limitFirst}
-                {limitSecond}
-              </div>
-            </div>
-          );
+  limitsRender() {
+    const OPERATOR = this.state.operator;
+    const TITLE_FIRST = this.titles.first;
+    const TITLE_SECOND = this.titles.second;
+    const TITLE_FACTOR = this.titles.factor;
+    const VALUE_FIRST = this.state.first;
+    const VALUE_SECOND = this.state.second;
+    const VALUE_FACTOR = this.state.factor;
 
-        }
-        break;
-
-      default:
-        result = (
-          <div className='container gray'>
-            <div className=''>
-              <div>Число разрядов в</div>
-              {limitFirst}
-              {limitSecond}
-            </div>
-          </div>
-        );
-        break;
+    let limitInput = (title, value, name) => {
+      return (
+        <div className='number'>
+          <span className='number__title'>
+            {title}
+          </span>
+          <span className='number__input'>
+            <button
+              type='button'
+              className='number__minus'
+              name={name}
+              value='minus'
+              onClick={this.handleChanges} >
+              -
+          </button>
+            <input
+              className='number__display'
+              name={name}
+              type='text'
+              pattern='^[0-9]+$'
+              value={value}
+              readOnly={true}
+            />
+            <button
+              type='button'
+              className='number__minus'
+              name={name}
+              value='plus'
+              onClick={this.handleChanges} >
+              +
+          </button>
+          </span>
+        </div>
+      );
     }
 
-    return (
-      result
-    )
+    let result = () => {
+      const FACTOR_INPUT = (() => {
+        if ((OPERATOR === 'mul')) {
+          if ((VALUE_FIRST === 1) && (VALUE_SECOND === 1)) {
+            return (limitInput(TITLE_FACTOR, VALUE_FACTOR, 'factor'));
+          }
+        }
+      });
+
+      return (<div className='container gray'>
+        <div className=''>
+          <div>Количество чисел в</div>
+          {limitInput(TITLE_FIRST, VALUE_FIRST, 'first')}
+          {limitInput(TITLE_SECOND, VALUE_SECOND, 'second')}
+        </div>
+        <div className=''>
+          {FACTOR_INPUT()}
+        </div>
+      </div>);
+    }
+
+
+    return (result());
   }
 
   handleChanges(event) {
@@ -351,7 +274,7 @@ class Greet extends React.Component {
     const OPERATOR = this.state.operator;
     this.changeTitles(OPERATOR);
     //let limitsInput;
-    const LIMITS_INPUT = this.limitsRender(OPERATOR);
+    const LIMITS_INPUT = this.limitsRender();
 
 
     return (
@@ -365,7 +288,7 @@ class Greet extends React.Component {
           Старт
         </button>
         <select
-          value={this.state.operator}
+          value={OPERATOR}
           onChange={this.handleChanges}
           name='operator'
           className='content'>
