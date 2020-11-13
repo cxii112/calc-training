@@ -32,14 +32,24 @@
   }
   .popup__content {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background-color: white;
     border-radius: 30px;
     padding: 30px;
-    height: auto;
+    height: 100%;
     max-width: 1000px;
     scrollbar-width: none;
     overflow-x: hidden;
     overflow-y: hidden;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
   }
@@ -53,10 +63,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .text {
-    font-size: inherit;
-  }
-  .text p {
+  p {
     font-size: 20px;
   }
   .popup__title {
@@ -81,23 +88,31 @@
     padding: 20px;
     min-width: inherit;
     max-width: inherit;
-    width: inherit;
-    height: inherit;
+    height: 100%;
     background-color: transparent;
     scrollbar-width: none;
   }
   .popup__content {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background-color: white;
     border-radius: 20px;
     padding: 20px;
+    height: 100%;
     scrollbar-width: none;
     overflow-x: hidden;
     overflow-y: hidden;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-    -webkit-animation: popup 0.5s ease-in-out forwards;
-            animation: popup 0.5s ease-in-out forwards;
   }
   .popup__content p {
     padding-left: 20px;
@@ -173,6 +188,8 @@ video {
 }
 
 .slides-controls {
+  position: absolute;
+  z-index: 60;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -182,7 +199,7 @@ video {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  bottom: 0px;
+  bottom: 10px;
 }
 
 .slides-controls button {

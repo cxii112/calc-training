@@ -43,14 +43,17 @@ $color-accent-green: rgba(#00ce00, 0.5);
   }
   .popup__content {
     position: relative;
+    display: flex;
+    flex-direction: column;
     background-color: $color-accent-white;
     border-radius: 30px;
     padding: 30px;
-    height: auto;
+    height: 100%;
     max-width: 1000px;
     scrollbar-width: none;
     overflow-x: hidden;
     overflow-y: hidden;
+    align-items: center;
     box-shadow: 0 0 40px $color-accent-gray-trancparent;
     p {
       padding-left: 20px;
@@ -65,12 +68,10 @@ $color-accent-green: rgba(#00ce00, 0.5);
 }
 
 @media screen and (max-width: 768px) {
-  .text {
-    font-size: inherit;
-    p {
-      font-size: 20px;
-    }
+  p {
+    font-size: 20px;
   }
+
   .popup__title {
     font-size: 35px;
   }
@@ -95,21 +96,23 @@ $color-accent-green: rgba(#00ce00, 0.5);
     padding: 20px;
     min-width: inherit;
     max-width: inherit;
-    width: inherit;
-    height: inherit;
+    height: 100%;
     background-color: transparent;
     scrollbar-width: none;
   }
   .popup__content {
     position: relative;
+    display: flex;
+    flex-direction: column;
     background-color: $color-accent-white;
     border-radius: 20px;
     padding: 20px;
+    height: 100%;
     scrollbar-width: none;
     overflow-x: hidden;
     overflow-y: hidden;
+    align-items: center;
     box-shadow: 0 0 20px $color-accent-gray-trancparent;
-    animation: popup 0.5s ease-in-out forwards;
     p {
       padding-left: 20px;
     }
@@ -163,10 +166,12 @@ video {
   transition: all 0.3s ease 0s;
 }
 .slides-controls {
+  position: absolute;
+  z-index: 60;
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 0px;
+  bottom: 10px;
   button {
     margin: 0px 10px;
   }
