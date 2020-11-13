@@ -1,28 +1,33 @@
 {
   "files": {
-    "main.css": "/calc-training/static/css/main.e6bcc07c.chunk.css",
-    "main.js": "/calc-training/static/js/main.44e5f200.chunk.js",
-    "main.js.map": "/calc-training/static/js/main.44e5f200.chunk.js.map",
-    "runtime-main.js": "/calc-training/static/js/runtime-main.b990f625.js",
-    "runtime-main.js.map": "/calc-training/static/js/runtime-main.b990f625.js.map",
-    "static/js/2.89e99926.chunk.js": "/calc-training/static/js/2.89e99926.chunk.js",
-    "static/js/2.89e99926.chunk.js.map": "/calc-training/static/js/2.89e99926.chunk.js.map",
-    "static/js/3.6be7ac8f.chunk.js": "/calc-training/static/js/3.6be7ac8f.chunk.js",
-    "static/js/3.6be7ac8f.chunk.js.map": "/calc-training/static/js/3.6be7ac8f.chunk.js.map",
+    "main.css": "/calc-training/static/css/main.3c6c65c1.chunk.css",
+    "main.js": "/calc-training/static/js/main.982c78be.chunk.js",
+    "main.js.map": "/calc-training/static/js/main.982c78be.chunk.js.map",
+    "runtime-main.js": "/calc-training/static/js/runtime-main.3d9ee956.js",
+    "runtime-main.js.map": "/calc-training/static/js/runtime-main.3d9ee956.js.map",
+    "static/js/2.eac78a88.chunk.js": "/calc-training/static/js/2.eac78a88.chunk.js",
+    "static/js/2.eac78a88.chunk.js.map": "/calc-training/static/js/2.eac78a88.chunk.js.map",
+    "static/js/3.8638a583.chunk.js": "/calc-training/static/js/3.8638a583.chunk.js",
+    "static/js/3.8638a583.chunk.js.map": "/calc-training/static/js/3.8638a583.chunk.js.map",
     "index.html": "/calc-training/index.html",
-    "static/css/main.e6bcc07c.chunk.css.map": "/calc-training/static/css/main.e6bcc07c.chunk.css.map",
-    "static/js/2.89e99926.chunk.js.LICENSE.txt": "/calc-training/static/js/2.89e99926.chunk.js.LICENSE.txt",
-    "static/media/decr_limits.bad81721.mp4": "/calc-training/static/media/decr_limits.bad81721.mp4",
-    "static/media/frac_limits.a9874630.mp4": "/calc-training/static/media/frac_limits.a9874630.mp4",
+    "static/css/main.3c6c65c1.chunk.css.map": "/calc-training/static/css/main.3c6c65c1.chunk.css.map",
+    "static/js/2.eac78a88.chunk.js.LICENSE.txt": "/calc-training/static/js/2.eac78a88.chunk.js.LICENSE.txt",
+    "static/media/decr.3fa39f4e.webm": "/calc-training/static/media/decr.3fa39f4e.webm",
+    "static/media/decr.bad81721.mp4": "/calc-training/static/media/decr.bad81721.mp4",
+    "static/media/frac.0f7c3642.webm": "/calc-training/static/media/frac.0f7c3642.webm",
+    "static/media/frac.a9874630.mp4": "/calc-training/static/media/frac.a9874630.mp4",
     "static/media/iconsfont.css": "/calc-training/static/media/icomoon.edbdd249.eot",
-    "static/media/mul_limits.de043c97.mp4": "/calc-training/static/media/mul_limits.de043c97.mp4",
-    "static/media/operator_choose.4f0c0ce8.mp4": "/calc-training/static/media/operator_choose.4f0c0ce8.mp4",
-    "static/media/sum_limits.71771879.mp4": "/calc-training/static/media/sum_limits.71771879.mp4"
+    "static/media/mul.0054b472.webm": "/calc-training/static/media/mul.0054b472.webm",
+    "static/media/mul.de043c97.mp4": "/calc-training/static/media/mul.de043c97.mp4",
+    "static/media/operator.4f0c0ce8.mp4": "/calc-training/static/media/operator.4f0c0ce8.mp4",
+    "static/media/operator.5d62b4a5.webm": "/calc-training/static/media/operator.5d62b4a5.webm",
+    "static/media/sum.71771879.mp4": "/calc-training/static/media/sum.71771879.mp4",
+    "static/media/sum.e545a800.webm": "/calc-training/static/media/sum.e545a800.webm"
   },
   "entrypoints": [
-    "static/js/runtime-main.b990f625.js",
-    "static/js/2.89e99926.chunk.js",
-    "static/css/main.e6bcc07c.chunk.css",
-    "static/js/main.44e5f200.chunk.js"
+    "static/js/runtime-main.3d9ee956.js",
+    "static/js/2.eac78a88.chunk.js",
+    "static/css/main.3c6c65c1.chunk.css",
+    "static/js/main.982c78be.chunk.js"
   ]
 }
