@@ -44,3 +44,13 @@
             flex-direction: row;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .options {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    font-size: 25px;
+  }
+}

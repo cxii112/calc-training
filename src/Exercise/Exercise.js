@@ -169,7 +169,7 @@ class Exercise extends React.Component {
           this.current.correct = this.current.first * this.current.second;
         }
 
-        console.log(this.current.correct)
+        //console.log(this.current.correct)
         break;
       case 'frac':
         do {
@@ -194,58 +194,67 @@ class Exercise extends React.Component {
 
 
   render() {
-    let finish;
-    if (this.state.total >= this.state.solveToFinish) {
-      finish = (
+    const TOTAL = this.state.total;
+    const SOLVE = this.state.solveToFinish;
+    const FIRST = this.current.first;
+    const SECOND = this.current.second;
+    const SYM = this.sym;
+    const CURRENT = this.state.current;
+
+    const FINISH_BUTTON = () => {
+      const CN = (TOTAL >= SOLVE ? 'content' : 'content gray')
+      const TEXT = (TOTAL >= SOLVE ?
+        'Завершить' : `До завершения ${SOLVE - TOTAL}`)
+      return (
         <button
-          className='content'
           type='button'
-          onClick={this.handleChanges}
           name='load'
-          value='stats'>
-          Завершить
+          value='stats'
+          className={CN}>
+          {TEXT}
         </button>
       );
-    } else {
-      const TEXT = (`До завершения ${this.state.solveToFinish - this.stats.total}`);
-      finish = (
+    };
+    const NEXT_BUTTON = () => {
+      const CN = 'content';
+      const TEXT = 'Следующий';
+      return (
         <button
-          className='content gray'
+          className={CN}
           type='button'
-          name='load'
-          value='stats'>{TEXT}</button>
-      );
-    }
+          name='answer'
+          onClick={this.handleChanges}>
+          {TEXT}
+        </button>
+      )
+    };
+    const EQUASION = () => {
+      return (
+        <div className=''>
+          <span>{FIRST}</span>
+          <span>{SYM}</span>
+          <span>{SECOND}</span>
+          <span>=</span>
+          <input
+            type='number'
+            pattern='[0-9$]+'
+            name='current'
+            placeholder='Ответ'
+            value={CURRENT}
+            onChange={this.handleAnswer}
+            autoFocus={true}
+          />
+        </div>
+      )
+    };
     return (
-      <div className='Exercise container'>
+      <div className='Exercise'>
         <div className='content'>
           <div className='container'>
-            <div>
-              <span>{this.current.first}</span>
-              <span>{this.sym}</span>
-              <span>{this.current.second}</span>
-              <span>=</span>
-              <input
-                type='number'
-                pattern='^[0-9]+$'
-                name='current'
-                placeholder='Ответ'
-                value={this.state.current}
-                onChange={this.handleAnswer}
-                autoFocus={true}
-              //onFocusCapture={this.state.autoFocus}
-              />
-            </div>
+            {EQUASION()}
+            {NEXT_BUTTON()}
+            {FINISH_BUTTON()}
           </div>
-          <button
-            className='content'
-            type='button'
-            name='answer'
-            onClick={this.handleChanges}
-          >
-            Следующий
-          </button>
-          {finish}
         </div>
       </div>
     )

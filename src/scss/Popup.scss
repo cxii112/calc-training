@@ -9,7 +9,6 @@ $color-accent-green: rgba(#00ce00, 0.5);
 
 @media screen and (min-width: 768px) {
   .text {
-    height: 100%;
     font-size: inherit;
   }
   .popup__title {
@@ -21,7 +20,6 @@ $color-accent-green: rgba(#00ce00, 0.5);
   .text__subtitle {
     font-size: 33px;
   }
-
   .text__subsection {
     padding-left: 20px;
     font-size: 25px;
@@ -40,6 +38,8 @@ $color-accent-green: rgba(#00ce00, 0.5);
     height: 100%;
     background-color: transparent;
     scrollbar-width: none;
+    overflow-x: inherit;
+    overflow-y: inherit;
   }
   .popup__content {
     position: relative;
@@ -51,8 +51,8 @@ $color-accent-green: rgba(#00ce00, 0.5);
     height: 100%;
     max-width: 1000px;
     scrollbar-width: none;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-x: inherit;
+    overflow-y: inherit;
     align-items: center;
     box-shadow: 0 0 40px $color-accent-gray-trancparent;
     p {
@@ -68,8 +68,15 @@ $color-accent-green: rgba(#00ce00, 0.5);
 }
 
 @media screen and (max-width: 768px) {
+  .text {
+    font-size: inherit;
+    p {
+      font-size: 20px;
+    }
+  }
+
   p {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .popup__title {
@@ -81,7 +88,6 @@ $color-accent-green: rgba(#00ce00, 0.5);
   .text__subtitle {
     font-size: 23px;
   }
-
   .text__subsection {
     padding-left: 20px;
     font-size: 15px;
@@ -99,6 +105,8 @@ $color-accent-green: rgba(#00ce00, 0.5);
     height: 100%;
     background-color: transparent;
     scrollbar-width: none;
+    overflow-x: inherit;
+    overflow-y: inherit;
   }
   .popup__content {
     position: relative;
@@ -109,8 +117,8 @@ $color-accent-green: rgba(#00ce00, 0.5);
     padding: 20px;
     height: 100%;
     scrollbar-width: none;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-x: inherit;
+    overflow-y: inherit;
     align-items: center;
     box-shadow: 0 0 20px $color-accent-gray-trancparent;
     p {
@@ -119,6 +127,128 @@ $color-accent-green: rgba(#00ce00, 0.5);
   }
   .close {
     transform: translate(20px, 0px);
+  }
+  .close:hover {
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .text {
+    font-size: inherit;
+  }
+  .popup__title {
+    font-size: 33px;
+  }
+  .text__sectiontitle {
+    font-size: 25px;
+  }
+  .text__subtitle {
+    font-size: 33px;
+  }
+  .text__subsection {
+    padding-left: 20px;
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .text__par {
+    padding-left: 0px;
+  }
+
+  .popup__container {
+    position: absolute;
+    padding: 20px;
+    min-width: inherit;
+    max-width: inherit;
+    width: auto;
+    height: 100%;
+    background-color: transparent;
+    scrollbar-width: none;
+    overflow-x: inherit;
+    overflow-y: inherit;
+  }
+  .popup__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-accent-white;
+    border-radius: 20px;
+    padding: 10px;
+    height: 100%;
+    max-width: 1000px;
+    scrollbar-width: none;
+    overflow-x: inherit;
+    overflow-y: inherit;
+    align-items: center;
+    box-shadow: 0 0 20px $color-accent-gray-trancparent;
+    p {
+      font-size: 20px;
+      padding-left: 20px;
+    }
+  }
+  .close {
+    transform: translate(30px, 5px);
+  }
+  .close:hover {
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .text {
+    font-size: inherit;
+  }
+  .popup__title {
+    font-size: 28px;
+  }
+  .text__sectiontitle {
+    font-size: 23px;
+  }
+  .text__subtitle {
+    font-size: 33px;
+  }
+  .text__subsection {
+    padding-left: 20px;
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .text__par {
+    padding-left: 0px;
+  }
+
+  .popup__container {
+    position: absolute;
+    padding: 20px;
+    min-width: inherit;
+    max-width: inherit;
+    width: auto;
+    height: 100%;
+    background-color: transparent;
+    scrollbar-width: none;
+    overflow-x: inherit;
+    overflow-y: inherit;
+  }
+  .popup__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-accent-white;
+    border-radius: 20px;
+    padding: 10px;
+    height: 100%;
+    max-width: 1000px;
+    scrollbar-width: none;
+    overflow-x: inherit;
+    overflow-y: inherit;
+    align-items: center;
+    box-shadow: 0 0 20px $color-accent-gray-trancparent;
+    p {
+      font-size: 17px;
+      padding-left: 15px;
+    }
+  }
+  .close {
+    transform: translate(30px, 5px);
   }
   .close:hover {
     box-shadow: none;
@@ -141,15 +271,19 @@ $color-accent-green: rgba(#00ce00, 0.5);
   scrollbar-width: none;
   opacity: 0;
   //animation: popup 0.3s ease 0s forwards;
-  transition: all 0.5s;
+  transition: all 0.7s;
   .close {
     position: absolute;
     right: 50px;
     z-index: 51;
   }
 }
+.ofv {
+  overflow-y: visible;
+}
 video {
   max-width: 700px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   align-self: center;
@@ -160,6 +294,8 @@ video {
   overflow-y: hidden;
 }
 .slide {
+  z-index: 0;
+  opacity: 0;
   position: absolute;
   left: 150%;
   background-color: $color-accent-white;
@@ -177,10 +313,14 @@ video {
   }
 }
 .now {
+  z-index: 50;
+  opacity: 1;
   position: relative;
   left: 0%;
 }
 .prev {
+  z-index: 0;
+  opacity: 0;
   position: absolute;
   left: -300vw;
 }

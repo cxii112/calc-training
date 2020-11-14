@@ -74,7 +74,7 @@ class App extends React.Component {
   }
 
   popupToggle(event) {
-    console.log(`popup ${event.target.name}`);
+    //console.log(`popup ${event.target.name}`);
     const NAME = event.target.name;
     const TARGET = document.getElementById(NAME);
     TARGET.classList.toggle('open');
@@ -117,7 +117,7 @@ class App extends React.Component {
           case 'factor':
             switch (value) {
               case 'minus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.factor - 1 >= this.mins.factor) {
                   this.setState({
                     factor: --this.state.factor
@@ -125,7 +125,7 @@ class App extends React.Component {
                 }
                 break;
               case 'plus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.factor + 1 <= this.maxs.factor) {
                   this.setState({
                     factor: ++this.state.factor
@@ -140,7 +140,7 @@ class App extends React.Component {
           case 'first':
             switch (value) {
               case 'minus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.first - 1 >= this.mins.first) {
                   this.setState({
                     first: --this.state.first
@@ -148,7 +148,7 @@ class App extends React.Component {
                 }
                 break;
               case 'plus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.first + 1 <= this.maxs.first) {
                   this.setState({
                     first: ++this.state.first
@@ -163,7 +163,7 @@ class App extends React.Component {
           case 'second':
             switch (value) {
               case 'minus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.second - 1 >= this.mins.second) {
                   this.setState({
                     second: --this.state.second
@@ -171,7 +171,7 @@ class App extends React.Component {
                 }
                 break;
               case 'plus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.second + 1 <= this.maxs.second) {
                   this.setState({
                     second: ++this.state.second
@@ -215,8 +215,8 @@ class App extends React.Component {
 
     const EQUASIONS = this.equasions;
 
-    const USAGE = (<Usage onClick={this.popupToggle} />);
-    const DEVlOG = (<DevLog onClick={this.popupToggle} />);
+    // let USAGE = (<Usage load={this.state.load} onClick={this.popupToggle} />);
+    // let DEVlOG = (<DevLog onClick={this.popupToggle} />);
 
     const ACTION = (state) => {
       switch (state) {
@@ -253,7 +253,14 @@ class App extends React.Component {
           );
       }
     }
-
+    // const POPUPS = (state) => {
+    //   return (
+    //     <div>
+    //       <Usage load={state} onClick={this.popupToggle} />
+    //       <DevLog onClick={this.popupToggle} />
+    //     </div>
+    //   )
+    // }
     return (
       <div className='container'>
         {OPTIONS}
@@ -262,8 +269,11 @@ class App extends React.Component {
             {ACTION(LOAD)}
           </div>
         </div>
-        {USAGE}
-        {DEVlOG}
+        {/* {USAGE}
+        {DEVlOG} */}
+        <Usage load={LOAD} onClick={this.popupToggle} />
+        <DevLog onClick={this.popupToggle} />
+        {/* {POPUPS(LOAD)} */}
       </div>);
   }
 }

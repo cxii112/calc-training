@@ -98,6 +98,12 @@ html {
   }
 }
 
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 17px;
+  }
+}
+
 body {
   max-width: 100vw;
   max-height: 100vh;
@@ -208,6 +214,52 @@ button {
   }
 }
 
+@media screen and (max-width: 320px) {
+  .container {
+    position: relative;
+    max-width: inherit;
+    max-height: inherit;
+    width: inherit;
+    height: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 7px;
+    margin: 5px 0px;
+    z-index: 10;
+  }
+  .content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 7px;
+    margin-bottom: 10px;
+  }
+  button {
+    width: inherit;
+    font-size: inherit;
+    color: white;
+    border-radius: 30px;
+    background-color: #0099ff;
+    margin: 5px 0px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   button:hover {
     -webkit-box-shadow: 0 0 10px #0099ff;
@@ -232,6 +284,16 @@ button {
   }
 }
 
+@media screen and (max-width: 320px) {
+  button:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  button.gray {
+    border-radius: 20px;
+  }
+}
+
 input {
   font-size: 30px;
   border-radius: 5px;
@@ -251,7 +313,7 @@ select {
   background: #dbdbdb;
   border: 1px solid #0099ff;
   /* рамка */
-  border-radius: 5px;
+  border-radius: 10px;
   /* скругление полей формы */
   -webkit-appearance: none;
   /* Chrome */

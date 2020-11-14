@@ -91,3 +91,37 @@
             align-items: center;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .Greet .Greet {
+    font-size: 15px;
+  }
+  .Greet .Greet input {
+    font-size: 15px;
+  }
+  .Greet .number__input {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #0099ff;
+    color: white;
+    font-size: 26px;
+  }
+  .Greet .number__input input {
+    border-radius: 0px;
+  }
+  .Greet .number__title {
+    margin: 0px 5px 0px 0px;
+    font-size: 26px;
+  }
+  .Greet .number__display {
+    font-size: inherit;
+  }
+  .Greet .number__minus,
+  .Greet .number__plus {
+    min-width: 10px;
+    padding: 0px 5px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}

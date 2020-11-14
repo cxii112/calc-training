@@ -85,8 +85,8 @@ class Stats extends React.Component {
   }
 
   render() {
-    console.log('stats');
-    console.log(this.equasions);
+    //console.log('stats');
+    //console.log(this.equasions);
     const EQUASIONS = this.equasionsParse();
     return (
       <div className='container'>

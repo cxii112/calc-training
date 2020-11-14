@@ -75,7 +75,7 @@ class DevLog extends React.Component {
       // console.log(this.changes);
       // console.log(this.plans);
       //console.log(this.bugAndIssuesList);
-      this.lastUpdated = '13.11.2020';
+      this.lastUpdated = '14.11.2020';
       this.onClick = this.popupToggle.bind(this);
       this.content = (
          <div className=''>
@@ -132,7 +132,7 @@ class DevLog extends React.Component {
                </div>
                <div className='text__section'>
                   <span className='text__sectiontitle'>Связь</span>
-                  <p>Пока что связь осуществляется через <a className='gray' type='link' href='https://vk.com/cxii112'>Вконтакте</a>. Прошу прикреплять снимки экрана с недочетами, ошибками и пр. или подробно описывать недоработки. Желательно подробно рассказать о действиях, которые были совершены перед тем, как появилась ошибка (возможно они и не связаны).</p>
+                  <p>Пока что связь осуществляется через <a className='gray icon-link' type='link' href='https://vk.com/cxii112'>Вконтакте</a>. Прошу прикреплять снимки экрана с недочетами, ошибками и пр. или подробно описывать недоработки. Желательно подробно рассказать о действиях, которые были совершены перед тем, как появилась ошибка (возможно они и не связаны).</p>
                   <p></p>
                </div>
             </div>
@@ -154,7 +154,7 @@ class DevLog extends React.Component {
             devLog = this.content;
       }
       return (
-         <div className='popup' id='devLog-popup'>
+         <div className='popup ofv' id='devLog-popup'>
             <div className='popup__container'>
                <div className='popup__content'>
                   <button type='button'

@@ -50,8 +50,8 @@ class Greet extends React.Component {
   }
 
   changeTitles(operator) {
-    console.log('titles ' + operator);
-    console.log(this.texts);
+    //console.log('titles ' + operator);
+    //console.log(this.texts);
     switch (operator) {
       case 'mul':
         this.titles.first = this.texts.mul.first;
@@ -70,7 +70,7 @@ class Greet extends React.Component {
         this.titles.second = this.texts.decr.second;
         break;
     }
-    console.log(this.titles);
+    //console.log(this.titles);
   }
 
   limitsRender() {
@@ -150,7 +150,7 @@ class Greet extends React.Component {
     let value = event.target.value;
 
 
-    console.log(NAME + ' ' + value);
+    //console.log(NAME + ' ' + value);
     switch (TYPE) {
       case 'number':
         switch (NAME) {
@@ -183,7 +183,7 @@ class Greet extends React.Component {
           case 'factor':
             switch (value) {
               case 'minus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.factor - 1 >= this.mins.factor) {
                   this.setState({
                     factor: --this.state.factor
@@ -191,7 +191,7 @@ class Greet extends React.Component {
                 }
                 break;
               case 'plus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.factor + 1 <= this.maxs.factor) {
                   this.setState({
                     factor: ++this.state.factor
@@ -206,7 +206,7 @@ class Greet extends React.Component {
           case 'first':
             switch (value) {
               case 'minus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.first - 1 >= this.mins.first) {
                   this.setState({
                     first: --this.state.first
@@ -214,7 +214,7 @@ class Greet extends React.Component {
                 }
                 break;
               case 'plus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.first + 1 <= this.maxs.first) {
                   this.setState({
                     first: ++this.state.first
@@ -229,7 +229,7 @@ class Greet extends React.Component {
           case 'second':
             switch (value) {
               case 'minus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.second - 1 >= this.mins.second) {
                   this.setState({
                     second: --this.state.second
@@ -237,7 +237,7 @@ class Greet extends React.Component {
                 }
                 break;
               case 'plus':
-                console.log(NAME + ' ' + value);
+                //console.log(NAME + ' ' + value);
                 if (this.state.second + 1 <= this.maxs.second) {
                   this.setState({
                     second: ++this.state.second

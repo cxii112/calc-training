@@ -91,4 +91,40 @@ $color-accent-green: rgba(#00ce00, 0.5);
       //user-select: none;
     }
   }
+  @media screen and (max-width: 320px) {
+    .Greet {
+      font-size: 15px;
+
+      input {
+        font-size: 15px;
+      }
+    }
+
+    .number__input {
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: $color-accent-blue;
+      color: $color-accent-white;
+      font-size: 26px;
+      input {
+        border-radius: 0px;
+      }
+    }
+    .number__title {
+      margin: 0px 5px 0px 0px;
+      font-size: 26px;
+    }
+    .number__display {
+      font-size: inherit;
+    }
+    .number__minus,
+    .number__plus {
+      min-width: 10px;
+      padding: 0px 5px;
+      // text-align: center;
+      align-items: center;
+      // justify-content: center;
+      //user-select: none;
+    }
+  }
 }
