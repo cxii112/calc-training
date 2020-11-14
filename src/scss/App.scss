@@ -27,11 +27,18 @@ $color-accent-green: rgba(#00ce00, 0.5);
     z-index: 50;
     margin: 5px;
   }
+  .version {
+    text-align: right;
+    margin: 5px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .options {
     flex-direction: column;
+    .version {
+      order: 3;
+    }
   }
 }
 @media screen and (max-width: 768px) {

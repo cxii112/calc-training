@@ -5,6 +5,7 @@ import Exercise from './Exercise/Exercise';
 import Stats from './Stats/Stats';
 import Usage from './Popups/Usage';
 import DevLog from './Popups/DevLog';
+import jsonData from '../package.json';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +22,8 @@ class App extends React.Component {
       correct: props.correct ? props.correct : 0,
       total: props.total ? props.total : 0,
     }
+    this.version = JSON.parse(JSON.stringify(jsonData)).version;
+    console.log(`v${this.version}`);
 
     this.mins = {
       first: 1,
@@ -40,26 +43,6 @@ class App extends React.Component {
     this.statsUpd = this.statsUpd.bind(this);
     this.popupToggle = this.popupToggle.bind(this);
     //this.statsUpd = this.statsUpd.bind(this);
-    this.options = (
-      <div className='options'>
-        <button
-          className='icon-code-solid'
-          type='button'
-          name='devLog-popup'
-          value='true'
-          onClick={this.popupToggle}>
-          DevLog
-        </button>
-        <button
-          className='icon-info-circle'
-          type='button'
-          name='usage-popup'
-          value='true'
-          onClick={this.popupToggle}>
-          Помощь
-        </button>
-      </div>
-    );
   }
 
   statsUpd(newStats) {
@@ -207,16 +190,13 @@ class App extends React.Component {
     const FIRST = this.state.first;
     const SECOND = this.state.second;
     const FACTOR = this.state.factor;
-    const OPTIONS = this.options;
     const LOAD = this.state.load;
     const SOLUTIONS = this.state.solveToFinish;
     const CORRECT = this.state.correct;
     const TOTAL = this.state.total;
 
     const EQUASIONS = this.equasions;
-
-    // let USAGE = (<Usage load={this.state.load} onClick={this.popupToggle} />);
-    // let DEVlOG = (<DevLog onClick={this.popupToggle} />);
+    const VERSION = this.version;
 
     const ACTION = (state) => {
       switch (state) {
@@ -253,17 +233,32 @@ class App extends React.Component {
           );
       }
     }
-    // const POPUPS = (state) => {
-    //   return (
-    //     <div>
-    //       <Usage load={state} onClick={this.popupToggle} />
-    //       <DevLog onClick={this.popupToggle} />
-    //     </div>
-    //   )
-    // }
+    const OPTIONS = () => {
+      return (
+        <div className='options'>
+          <span className='version'>v{VERSION}</span>
+          <button
+            className='icon-code-solid'
+            type='button'
+            name='devLog-popup'
+            value='true'
+            onClick={this.popupToggle}>
+            DevLog
+        </button>
+          <button
+            className='icon-info-circle'
+            type='button'
+            name='usage-popup'
+            value='true'
+            onClick={this.popupToggle}>
+            Помощь
+        </button>
+        </div>
+      );
+    }
     return (
       <div className='container'>
-        {OPTIONS}
+        {OPTIONS()}
         <div className='content'>
           <div className='App'>
             {ACTION(LOAD)}
