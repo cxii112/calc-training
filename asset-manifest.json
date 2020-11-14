@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/calc-training/static/css/main.3c6c65c1.chunk.css",
-    "main.js": "/calc-training/static/js/main.da3b99a4.chunk.js",
-    "main.js.map": "/calc-training/static/js/main.da3b99a4.chunk.js.map",
+    "main.js": "/calc-training/static/js/main.b48cb447.chunk.js",
+    "main.js.map": "/calc-training/static/js/main.b48cb447.chunk.js.map",
     "runtime-main.js": "/calc-training/static/js/runtime-main.3d9ee956.js",
     "runtime-main.js.map": "/calc-training/static/js/runtime-main.3d9ee956.js.map",
     "static/js/2.eac78a88.chunk.js": "/calc-training/static/js/2.eac78a88.chunk.js",
@@ -12,15 +12,21 @@
     "index.html": "/calc-training/index.html",
     "static/css/main.3c6c65c1.chunk.css.map": "/calc-training/static/css/main.3c6c65c1.chunk.css.map",
     "static/js/2.eac78a88.chunk.js.LICENSE.txt": "/calc-training/static/js/2.eac78a88.chunk.js.LICENSE.txt",
-    "static/media/decr.3fa39f4e.webm": "/calc-training/static/media/decr.3fa39f4e.webm",
-    "static/media/decr.bad81721.mp4": "/calc-training/static/media/decr.bad81721.mp4",
+    "static/media/decr.3ec6018e.mp4": "/calc-training/static/media/decr.3ec6018e.mp4",
+    "static/media/decr.c3c30127.webm": "/calc-training/static/media/decr.c3c30127.webm",
     "static/media/frac.0f7c3642.webm": "/calc-training/static/media/frac.0f7c3642.webm",
     "static/media/frac.a9874630.mp4": "/calc-training/static/media/frac.a9874630.mp4",
     "static/media/iconsfont.css": "/calc-training/static/media/icomoon.edbdd249.eot",
+    "static/media/input.87de1a99.webm": "/calc-training/static/media/input.87de1a99.webm",
+    "static/media/input.dfac734a.mp4": "/calc-training/static/media/input.dfac734a.mp4",
     "static/media/mul.0054b472.webm": "/calc-training/static/media/mul.0054b472.webm",
     "static/media/mul.de043c97.mp4": "/calc-training/static/media/mul.de043c97.mp4",
     "static/media/operator.4f0c0ce8.mp4": "/calc-training/static/media/operator.4f0c0ce8.mp4",
     "static/media/operator.5d62b4a5.webm": "/calc-training/static/media/operator.5d62b4a5.webm",
+    "static/media/results.22a93a26.webm": "/calc-training/static/media/results.22a93a26.webm",
+    "static/media/results.2df9ae59.mp4": "/calc-training/static/media/results.2df9ae59.mp4",
+    "static/media/solve.6cb3fed6.webm": "/calc-training/static/media/solve.6cb3fed6.webm",
+    "static/media/solve.82f4a612.mp4": "/calc-training/static/media/solve.82f4a612.mp4",
     "static/media/sum.71771879.mp4": "/calc-training/static/media/sum.71771879.mp4",
     "static/media/sum.e545a800.webm": "/calc-training/static/media/sum.e545a800.webm"
   },
@@ -28,6 +34,6 @@
     "static/js/runtime-main.3d9ee956.js",
     "static/js/2.eac78a88.chunk.js",
     "static/css/main.3c6c65c1.chunk.css",
-    "static/js/main.da3b99a4.chunk.js"
+    "static/js/main.b48cb447.chunk.js"
   ]
 }
