@@ -75,7 +75,7 @@ class DevLog extends React.Component {
       // console.log(this.changes);
       // console.log(this.plans);
       //console.log(this.bugAndIssuesList);
-      this.lastUpdated = '14.11.2020';
+      this.lastUpdated = '15.11.2020';
       this.onClick = this.popupToggle.bind(this);
       this.content = (
          <div className=''>

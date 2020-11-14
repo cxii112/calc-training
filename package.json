@@ -1,6 +1,6 @@
 {
   "name": "calc-training",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "homepage": "https://lyakhovoy-dmitry.github.io/calc-training/",
   "dependencies": {

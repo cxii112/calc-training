@@ -210,7 +210,8 @@ class Exercise extends React.Component {
           type='button'
           name='load'
           value='stats'
-          className={CN}>
+          className={CN}
+          onClick={this.handleChanges}>
           {TEXT}
         </button>
       );
