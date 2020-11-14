@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/calc-training/static/css/main.55cc13cb.chunk.css",
-    "main.js": "/calc-training/static/js/main.8d7bdb8d.chunk.js",
-    "main.js.map": "/calc-training/static/js/main.8d7bdb8d.chunk.js.map",
+    "main.css": "/calc-training/static/css/main.4b3aa04e.chunk.css",
+    "main.js": "/calc-training/static/js/main.0392374a.chunk.js",
+    "main.js.map": "/calc-training/static/js/main.0392374a.chunk.js.map",
     "runtime-main.js": "/calc-training/static/js/runtime-main.ab384cb1.js",
     "runtime-main.js.map": "/calc-training/static/js/runtime-main.ab384cb1.js.map",
     "static/js/2.862a73d5.chunk.js": "/calc-training/static/js/2.862a73d5.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.04b86aff.chunk.js": "/calc-training/static/js/3.04b86aff.chunk.js",
     "static/js/3.04b86aff.chunk.js.map": "/calc-training/static/js/3.04b86aff.chunk.js.map",
     "index.html": "/calc-training/index.html",
-    "static/css/main.55cc13cb.chunk.css.map": "/calc-training/static/css/main.55cc13cb.chunk.css.map",
+    "static/css/main.4b3aa04e.chunk.css.map": "/calc-training/static/css/main.4b3aa04e.chunk.css.map",
     "static/js/2.862a73d5.chunk.js.LICENSE.txt": "/calc-training/static/js/2.862a73d5.chunk.js.LICENSE.txt",
     "static/media/decr.3ec6018e.mp4": "/calc-training/static/media/decr.3ec6018e.mp4",
     "static/media/decr.c3c30127.webm": "/calc-training/static/media/decr.c3c30127.webm",
@@ -33,7 +33,7 @@
   "entrypoints": [
     "static/js/runtime-main.ab384cb1.js",
     "static/js/2.862a73d5.chunk.js",
-    "static/css/main.55cc13cb.chunk.css",
-    "static/js/main.8d7bdb8d.chunk.js"
+    "static/css/main.4b3aa04e.chunk.css",
+    "static/js/main.0392374a.chunk.js"
   ]
 }
