@@ -237,22 +237,24 @@ class App extends React.Component {
       return (
         <div className='options'>
           <span className='version'>v{VERSION}</span>
-          <button
-            className='icon-code-solid'
-            type='button'
-            name='devLog-popup'
-            value='true'
-            onClick={this.popupToggle}>
-            DevLog
+          <div className='popups'>
+            <button
+              className='icon-code-solid'
+              type='button'
+              name='devLog-popup'
+              value='true'
+              onClick={this.popupToggle}>
+              DevLog
         </button>
-          <button
-            className='icon-info-circle'
-            type='button'
-            name='usage-popup'
-            value='true'
-            onClick={this.popupToggle}>
-            Помощь
+            <button
+              className='icon-info-circle'
+              type='button'
+              name='usage-popup'
+              value='true'
+              onClick={this.popupToggle}>
+              Помощь
         </button>
+          </div>
         </div>
       );
     }

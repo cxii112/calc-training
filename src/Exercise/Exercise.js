@@ -54,16 +54,23 @@ class Exercise extends React.Component {
   }
 
   handleAnswer(event) {
-    if (typeof (Number(event.target.value)) === 'number') {
-      this.current.answer = Number(event.target.value);
+    const VALUE = event.target.value;
+    const REG = /\b0/;
+    
+      if (REG.test(VALUE) && VALUE.length > 1) {
+        this.current.answer = Number(VALUE.replace(/\b0/, ''));
+      } else {
+        this.current.answer = Number(VALUE);
+      }
       this.setState({
         [event.target.name]: this.current.answer
       })
-    } else {
-      this.setState({
-        [event.target.name]: ''
-      })
-    }
+    //  else {
+    //   this.setState({
+    //     [event.target.name]: ''
+    //   })
+    //  }
+    
   }
 
 
@@ -82,12 +89,16 @@ class Exercise extends React.Component {
       case 'button':
         switch (NAME) {
           case 'load':
-            this.setState({
-              [NAME]: VALUE,
-            });
-            this.props.statsUpd(this.stats);
-            this.props.handleEquasions(this.equasions);
-            this.props.handleChanges(event);
+            if (this.stats.total >= this.state.solveToFinish) {
+
+
+              this.setState({
+                [NAME]: VALUE,
+              });
+              this.props.statsUpd(this.stats);
+              this.props.handleEquasions(this.equasions);
+              this.props.handleChanges(event);
+            }
             break;
 
           case 'answer':
@@ -196,10 +207,13 @@ class Exercise extends React.Component {
   render() {
     const TOTAL = this.state.total;
     const SOLVE = this.state.solveToFinish;
+    const CURRENT = this.state.current;
+
     const FIRST = this.current.first;
     const SECOND = this.current.second;
+
     const SYM = this.sym;
-    const CURRENT = this.state.current;
+    
 
     const FINISH_BUTTON = () => {
       const CN = (TOTAL >= SOLVE ? 'content' : 'content gray')
@@ -238,7 +252,6 @@ class Exercise extends React.Component {
           <span>=</span>
           <input
             type='number'
-            pattern='[0-9$]+'
             name='current'
             placeholder='Ответ'
             value={CURRENT}

@@ -284,7 +284,7 @@ button {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
   button:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
